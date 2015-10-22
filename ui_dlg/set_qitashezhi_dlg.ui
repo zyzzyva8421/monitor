@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dlg_set_others</class>
+ <widget class="QDialog" name="Dlg_set_others">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>190</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>其他设置</string>
+  </property>
+  <widget class="QComboBox" name="m_cmbb_light">
+   <property name="geometry">
+    <rect>
+     <x>149</x>
+     <y>15</y>
+     <width>101</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>10</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="m_btn_ok">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>155</y>
+     <width>99</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="m_btn_cancel">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>155</y>
+     <width>99</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>取消</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>100</y>
+     <width>70</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>波形平滑</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>70</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>亮度</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_warning_volume">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>55</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>10</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_smoth">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>95</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>60</y>
+     <width>70</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>报警音量</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

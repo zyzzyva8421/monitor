@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form_serv_usr_config_para</class>
+ <widget class="QWidget" name="Form_serv_usr_config_para">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>450</width>
+    <height>375</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>参数开关</string>
+  </property>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>120</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>体温</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>50</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>血氧</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>225</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>IBP1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>85</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>呼吸</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>155</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>无创血压</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>290</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>CO2</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>15</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>心电</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>190</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>麻醉深度</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_17">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>260</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>IBP2</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_16">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>10</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_17">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>45</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_18">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>115</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_19">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>80</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_20">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>220</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_21">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>185</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_23">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>150</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_24">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>290</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_25">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>255</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>190</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>导联类型</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>15</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>趋势</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>85</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>波形回顾</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>120</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>界面</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_26">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>150</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>50</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>报警回顾</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_27">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>115</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_29">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>10</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>155</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>药物计算</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_30">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>185</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_31">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>80</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_32">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>45</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>330</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>330</y>
+     <width>121</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>取消</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

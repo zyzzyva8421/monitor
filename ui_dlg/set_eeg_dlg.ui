@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dlg_set_eeg</class>
+ <widget class="QDialog" name="Dlg_set_eeg">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>451</width>
+    <height>379</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>脑电设置</string>
+  </property>
+  <widget class="QComboBox" name="m_cmbb_boxingmoshi">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>45</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>7</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>160</y>
+     <width>75</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>呼吸系数</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>300</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>呼吸时间常数</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>195</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>脑电时间常数</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>55</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>波形模式</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="m_btn_cancel">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>340</y>
+     <width>121</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>取消</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>脑电限波</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="m_spb_naodianxishu">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>120</y>
+     <width>121</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>-999.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>999.990000000000009</double>
+   </property>
+   <property name="singleStep">
+    <double>0.010000000000000</double>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_naodianlvbo">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>150</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>4</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>265</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>呼吸滤波</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>230</y>
+     <width>75</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>眼动系数</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_shijianchangshu">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>185</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>4</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_huxixianbo">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>10</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="m_spb_yandongxishu">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>225</y>
+     <width>121</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>-999.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>999.000000000000000</double>
+   </property>
+   <property name="singleStep">
+    <double>0.010000000000000</double>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>195</y>
+     <width>75</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>肌电系数</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_huxilvbo">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>255</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>4</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_daolianmoshi">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>10</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>5</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_naodianxianbo">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>220</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>265</y>
+     <width>75</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>鼾声系数</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>125</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>波形速度</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="m_spb_jidianxishu">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>190</y>
+     <width>121</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>-999.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>999.000000000000000</double>
+   </property>
+   <property name="singleStep">
+    <double>0.010000000000000</double>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_hanshengchangshu">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>45</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_lingmindu">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>80</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>15</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>125</y>
+     <width>75</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>脑电系数</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>85</y>
+     <width>75</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>鼾声限波</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>15</y>
+     <width>75</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>呼吸限波</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_boxingsudu">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>115</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>3</number>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="m_spb_hanshengxishu">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>260</y>
+     <width>121</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>-999.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>999.000000000000000</double>
+   </property>
+   <property name="singleStep">
+    <double>0.010000000000000</double>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>脑电滤波</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_huxichangshu">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>290</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>4</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="m_btn_ok">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>340</y>
+     <width>111</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_17">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>50</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>鼾声时间常数</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="m_spb_huxixishu">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>155</y>
+     <width>121</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>-999.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>999.000000000000000</double>
+   </property>
+   <property name="singleStep">
+    <double>0.010000000000000</double>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>导联模式</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="m_cmbb_hanshengxianbo">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>80</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="maxVisibleItems">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>灵  敏  度</string>
+   </property>
+  </widget>
+  <zorder>m_cmbb_boxingmoshi</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label_16</zorder>
+  <zorder>label_13</zorder>
+  <zorder>label_4</zorder>
+  <zorder>m_btn_cancel</zorder>
+  <zorder>label_14</zorder>
+  <zorder>m_spb_naodianxishu</zorder>
+  <zorder>m_cmbb_naodianlvbo</zorder>
+  <zorder>label_15</zorder>
+  <zorder>label_10</zorder>
+  <zorder>m_cmbb_shijianchangshu</zorder>
+  <zorder>m_cmbb_huxixianbo</zorder>
+  <zorder>m_spb_yandongxishu</zorder>
+  <zorder>label_8</zorder>
+  <zorder>m_cmbb_huxilvbo</zorder>
+  <zorder>m_cmbb_daolianmoshi</zorder>
+  <zorder>m_cmbb_naodianxianbo</zorder>
+  <zorder>label_12</zorder>
+  <zorder>label_9</zorder>
+  <zorder>m_cmbb_hanshengchangshu</zorder>
+  <zorder>m_cmbb_lingmindu</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_18</zorder>
+  <zorder>label_3</zorder>
+  <zorder>m_cmbb_boxingsudu</zorder>
+  <zorder>m_spb_hanshengxishu</zorder>
+  <zorder>label_11</zorder>
+  <zorder>m_cmbb_huxichangshu</zorder>
+  <zorder>m_btn_ok</zorder>
+  <zorder>label_17</zorder>
+  <zorder>m_spb_huxixishu</zorder>
+  <zorder>label</zorder>
+  <zorder>m_cmbb_hanshengxianbo</zorder>
+  <zorder>label_7</zorder>
+  <zorder>m_spb_jidianxishu</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

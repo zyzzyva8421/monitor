@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSdfsdf">
+    <property name="title">
+     <string>sdfsdf</string>
+    </property>
+    <addaction name="actionFhjghj"/>
+    <addaction name="actionSdfasdf"/>
+    <addaction name="separator"/>
+    <addaction name="actionFdgsdfgsdfg"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdsfasdf"/>
+   </widget>
+   <addaction name="menuSdfsdf"/>
+  </widget>
+  <action name="actionFhjghj">
+   <property name="text">
+    <string>fhjghj</string>
+   </property>
+  </action>
+  <action name="actionSdfasdf">
+   <property name="text">
+    <string>sdfasdf</string>
+   </property>
+  </action>
+  <action name="actionFdgsdfgsdfg">
+   <property name="text">
+    <string>fdgsdfgsdfg</string>
+   </property>
+  </action>
+  <action name="actionAdsfasdf">
+   <property name="text">
+    <string>adsfasdf</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

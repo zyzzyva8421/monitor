@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>qrc/bingrenguanli.png</file>
+        <file>qrc/20150212-15.png</file>
+        <file>qrc/baojingxian.png</file>
+        <file>qrc/baojingxian2.png</file>
+        <file>qrc/Battery_0.png</file>
+        <file>qrc/Battery_1.png</file>
+        <file>qrc/Battery_2.png</file>
+        <file>qrc/Battery_3.png</file>
+        <file>qrc/Battery_4.png</file>
+        <file>qrc/bingrenguanli2.png</file>
+        <file>qrc/check.png</file>
+        <file>qrc/lishihuigu.png</file>
+        <file>qrc/lishihuigu2.png</file>
+        <file>qrc/Network.png</file>
+        <file>qrc/Network_con.png</file>
+        <file>qrc/Network_dis.png</file>
+        <file>qrc/shezhi.png</file>
+        <file>qrc/shezhi2.png</file>
+        <file>qrc/weihu2.png</file>
+        <file>qrc/wifi_1.png</file>
+        <file>qrc/wifi_2.png</file>
+        <file>qrc/wifi_3.png</file>
+        <file>qrc/wifi_4.png</file>
+        <file>qrc/wifi_5.png</file>
+        <file>qrc/yanshimoshi.png</file>
+        <file>qrc/weihu.png</file>
+    </qresource>
+</RCC>

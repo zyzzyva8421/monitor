@@ -65,7 +65,9 @@ HEADERS += \
     rsc_modu/modu_play.h \
     rsc_modu/modu_gpio.h \
     rsc_modu/gpio_lib.h \
-    rsc_modu/gpio.h
+    rsc_modu/gpio.h \
+    keyboard.h \
+    keyboard_context.h
 
 SOURCES += \
     qextserialbase.cpp \
@@ -133,7 +135,9 @@ SOURCES += \
     rsc_modu/modu_play.cpp \
     rsc_modu/gpio_lib.cpp \
     rsc_modu/gpio.cpp \
-    rsc_modu/modu_gpio.cpp
+    rsc_modu/modu_gpio.cpp \
+    keyboard.cpp \
+    keyboard_context.cpp
 
 RESOURCES += \
     maiform.qrc \
@@ -167,7 +171,7 @@ FORMS += \
     ui_dlg/pmng_bingrenxinxi.ui \
     ui_dlg/mainform.ui \
     ui_dlg/keyboard_E.ui \
-    ui_dlg/keboard_e.ui \
+    ui_dlg/keyboard_e.ui \
     ui_dlg/his_qushitu_dlg.ui \
     ui_dlg/his_qushibiao_dlg.ui \
     ui_dlg/his_nibp_huigu_dlg.ui \
@@ -185,7 +189,8 @@ FORMS += \
     ui_dlg/alm_spire_dlg.ui \
     ui_dlg/alm_temp_dlg.ui \
     ui_dlg/alm_spo2_dlg.ui \
-    ui_dlg/serv_usr_config_dlg.ui
+    ui_dlg/serv_usr_config_dlg.ui \
+    keyboard.ui
 
 OTHER_FILES += \
     rsc_warning/warning2.txt

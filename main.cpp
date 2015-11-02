@@ -19,7 +19,7 @@
 #include "rsc_modu/modu_gpio.h"
 #include "mainform.h"
 #include "rsc_warning/glb_warning.h"
-
+#include "keyboard_context.h"
 #include <QSound>
 #define MONITOR_DATABASE_FILE "/home/data/database/monitor.dat"
 
@@ -32,6 +32,9 @@ int main(int argc, char* argv[])
     //keyscan();
     QApplication::setStyle(new QCleanlooksStyle );
     QApplication app(argc, argv);
+
+    KeyboardContext *ic = new KeyboardContext;
+    app.setInputContext(ic);
 
     QTextCodec::setCodecForTr(QTextCodec::codecForName("gb2312"));
     //Q_INIT_RESOURCE(findfile);

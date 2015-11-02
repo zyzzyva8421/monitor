@@ -2,6 +2,7 @@
 #include"ui_pmng_patient_info.h"
 #include "form_patient_info.h"
 #include "mainform.h"
+#include "keyboard_context.h"
 CFormPatientInfo::CFormPatientInfo(QWidget* parent,QWidget *pMain) :QDialog(parent)
 {
     setupUi(this);
@@ -221,9 +222,10 @@ bool CFormPatientInfo::eventFilter(QObject *o,QEvent *e)
                     bCursorSta = true;
                     QSpinBox *p = (QSpinBox *)obj[iCursor];
 
+                } else if (iCursor == 6 || iCursor == 7 || iCursor == 9) {
+                    // line edit, popup the keyboard
+                    ((KeyboardContext*)qApp->inputContext())->showKeyboard();
                 }
-
-
             }
             else
             {
@@ -234,7 +236,7 @@ bool CFormPatientInfo::eventFilter(QObject *o,QEvent *e)
         default:
             CMainForm *p = (CMainForm *)pMainForm;
             p->f_process_key(event->key());
-            return true;
+            return false;
             break;
 
         }

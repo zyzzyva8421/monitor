@@ -247,6 +247,7 @@ void CAnaesDepModu::f_plot_ana_wave(int data)
 {
     double y = 0;
     bool limit_flag = false;
+    double dstep = 0;
     QVector<QPointF> tempint;
 
     y = m_modu_cfg->m_wave_rec.height()-data * m_modu_cfg->m_wave_rec.height() / 256; //
@@ -271,7 +272,7 @@ void CAnaesDepModu::f_plot_ana_wave(int data)
 
     }
 
-
+/*
     if(limit_flag == true)
     {
         if(m_modu_cfg->m_wave_enable)
@@ -297,4 +298,25 @@ void CAnaesDepModu::f_plot_ana_wave(int data)
         }
         m_wave_last_pos = m_wave_pos;
     }
+*/
+    if(m_wave_pos >= m_wave_last_pos)
+    {
+        dstep = m_wave_pos - m_wave_last_pos;
+    }
+    else
+    {
+        dstep = m_wave_pos + WAVE_WIDGET_WIDTH_PIX - m_wave_last_pos;
+    }
+    if(dstep)
+    {
+        if(m_modu_cfg->m_wave_enable)
+        {
+            tempint.append(QPointF(dstep,y));
+            //g_WavePlotter->setCurveData(m_modu_cfg->m_wave_indx, tempint,m_wave_pos);
+            g_drawThread->f_draw_ana(m_modu_cfg->m_wave_indx, tempint,m_wave_pos);
+            tempint.clear();
+        }
+        m_wave_last_pos = m_wave_pos;
+    }
+
 }

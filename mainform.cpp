@@ -74,7 +74,7 @@ CMainForm::CMainForm(QWidget* parent,Qt::WindowFlags f)
     connect(m_btn_serve,SIGNAL(clicked()),this,SLOT(slot_btn_serve_clicked()));
 */
    /////////////////////////////////////////////////////////////////////////////////////
-    g_gpioModu = new CGPIOMODU(this) ;
+    //g_gpioModu = new CGPIOMODU(this) ;
     //g_gpioModu->f_set_12v_en(false);
     g_PlayThread = new CPlayThread() ;
 

@@ -75,12 +75,14 @@ private:
     double iStopPositon[MAX_PLOT_CURVES];
     QStaticText wavenames[MAX_PLOT_CURVES];
     QColor wavecolors[MAX_PLOT_CURVES];
-    int iLastXpix[MAX_PLOT_CURVES]; //上一帧数据画到的像素点。
+    double iLastXpix[MAX_PLOT_CURVES]; //上一帧数据画到的像素点。
     int iWaveOffsetY[MAX_PLOT_CURVES];
     int iWaveHeight[MAX_PLOT_CURVES];
 
     double iLastXpixAuto[MAX_PLOT_CURVES]; //上一帧数据画到的像素点。
     double iStopPositonAuto[MAX_PLOT_CURVES];
+
+    bool bRestScreenFlg; //重置屏幕标志，true=屏幕画黑，false=正常
 
     double iStopPos; //数据列表中新数据停止的位置
     int iLastX; //上一帧数据画到的像素点。

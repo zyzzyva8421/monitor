@@ -57,6 +57,8 @@ int main(int argc, char* argv[])
     }
     CMainForm form;
     form.show();
+//    form.f_set_big_font_layout();
+    form.f_set_standard_layout();
 
 /*
     QFile inputFile;
@@ -74,7 +76,7 @@ int main(int argc, char* argv[])
 
       audio->start(&inputFile);
 */
-    return app.exec();
+      return app.exec();
 }
 void createFakeData()
 {

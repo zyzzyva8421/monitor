@@ -368,9 +368,9 @@ void CEegModule::f_plot_eeg_wave(char * data)
     for(int i = 0;i<EEG_MODULE_WAVE_NUM;i++)
     {
         m_eeg_pos[i] +=x;
-        if(m_eeg_pos[i]>= (WAVE_WIDGET_WIDTH_PIX-1))
+        if(m_eeg_pos[i]>= (g_WaveWidgetWidthPix-1))
         {
-            m_eeg_pos[i] -= (WAVE_WIDGET_WIDTH_PIX-1);
+            m_eeg_pos[i] -= (g_WaveWidgetWidthPix-1);
             limit_flag = true;
 
         }

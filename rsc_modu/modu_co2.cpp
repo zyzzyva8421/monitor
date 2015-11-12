@@ -170,18 +170,18 @@ void CCO2Modu::f_plot_co2_wave(int data)
     double x=0;
     if(m_modu_cfg->m_wave_speed == 0) //12.5mm/s
     {
-        x = 0.3181818;//1*730/(500*17.6); // (730[pix]/220[mm])* 12.5[mm/s] / (125[Byte/s]) = pix/Byte
+        x = g_PixPerByte_12_5mm;
     }
     else if(m_modu_cfg->m_wave_speed == 1) // 25mm/s
     {
-        x = 0.66363636;//1*730/(125*8.8);
+        x = g_PixPerByte_25mm;
     }
 
 
     m_wave_pos +=x;
-    if(m_wave_pos>= (WAVE_WIDGET_WIDTH_PIX-1))
+    if(m_wave_pos>= (g_WaveWidgetWidthPix-1))
     {
-        m_wave_pos -= (WAVE_WIDGET_WIDTH_PIX-1);
+        m_wave_pos -= (g_WaveWidgetWidthPix-1);
         limit_flag = true;
 
     }

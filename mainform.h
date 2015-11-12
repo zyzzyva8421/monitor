@@ -3,8 +3,7 @@
 
 
 #include "ui_mainform.h"
-
-
+#include "ui_mainform_big_font.h"
 #include "rsc_modu/layout.h"
 #include "rsc_modu/color.h"
 #include "rsc_modu/modu_ibp.h"
@@ -30,10 +29,16 @@ class CDrawThread ;
 class CGPIOMODU;
 typedef QVector<QPointF> stWavedata;
 
-#define WAVE_WIDGET_WIDTH_PIX 730
-#define WAVE_WIDGET_ALL_HEIGHT_PIX 696
-#define WAVE_WIDGET_WIDTH_LEN 220
-#define WAVE_WIDGET_HEIGHT_PIX 50
+extern int g_WaveWidgetWidthPix;
+extern int g_WaveWidgetAllHeightPix;
+extern int g_WaveWidgetHeightPix;
+
+extern double g_PixPerByte_3_125mm;
+extern double g_PixPerByte_6_25mm;
+extern double g_PixPerByte_12_5mm;
+extern double g_PixPerByte_25mm;
+extern double g_PixPerByte_50mm;
+
 #define STATUS_BAR_WIDGET_HEIGHT 32
 class CMainForm :	public QWidget,public Ui_MonitorForm
 {
@@ -87,6 +92,8 @@ private slots:
             void slot_key_pressed(int);
 public:
         void f_set_all_panels_color();
+        void f_set_standard_layout();
+        void f_set_big_font_layout();
         bool f_process_key(int key);
 protected:
         bool eventFilter(QObject *o,QEvent *e);

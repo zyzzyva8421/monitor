@@ -51,14 +51,14 @@ WavePlotter::WavePlotter(QWidget *parent)
          iStopPositon[i] = 0;
          wavenames[i].setText("Wave "+QString::number(i,10));
          wavecolors[i] = colorForIds[i%6];
-         iWaveOffsetY[i] = 10+i*50;
+         iWaveOffsetY[i] = 10+i*g_WaveWidgetHeightPix;
          iLastXpixAuto[i] = iStopPositonAuto[i] = 0;
-         iWaveHeight[i] = 50;
+         iWaveHeight[i] = g_WaveWidgetHeightPix;
     }
     QRect ret(0,
               STATUS_BAR_WIDGET_HEIGHT,
-              WAVE_WIDGET_WIDTH_PIX,
-              WAVE_WIDGET_ALL_HEIGHT_PIX);
+              g_WaveWidgetWidthPix,
+              g_WaveWidgetAllHeightPix);
    setGeometry(ret);
    show();
 }

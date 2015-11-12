@@ -101,8 +101,8 @@ void CLayoutModule::f_set_stand_layout()
         {
             if(cfg.m_wave_plot_enable[i] == true)
             {
-                cfg.m_wave_rec[i] = QRect(0,iHLayout,WAVE_WIDGET_WIDTH_PIX,WAVE_WIDGET_HEIGHT_PIX);
-                iHLayout +=WAVE_WIDGET_HEIGHT_PIX;
+                cfg.m_wave_rec[i] = QRect(0,iHLayout,g_WaveWidgetWidthPix,g_WaveWidgetHeightPix);
+                iHLayout +=g_WaveWidgetHeightPix;
                 cfg.m_wave_indx[i] = index++;
             }
         }
@@ -121,8 +121,8 @@ void CLayoutModule::f_set_stand_layout()
             }
             if(cfg.m_wave_plot_enable[i] == true)
             {
-                cfg.m_wave_rec[i] = QRect(0,iHLayout,WAVE_WIDGET_WIDTH_PIX,WAVE_WIDGET_HEIGHT_PIX);
-                iHLayout +=WAVE_WIDGET_HEIGHT_PIX;
+                cfg.m_wave_rec[i] = QRect(0,iHLayout,g_WaveWidgetWidthPix,g_WaveWidgetHeightPix);
+                iHLayout +=g_WaveWidgetHeightPix;
                 cfg.m_wave_indx[i] = index++;
             }
         }
@@ -134,8 +134,8 @@ void CLayoutModule::f_set_stand_layout()
         g_CO2Module->f_get_cfg(&cfg);
         if(cfg.m_wave_enable == true)
         {
-            cfg.m_wave_rec = QRect(0,iHLayout,WAVE_WIDGET_WIDTH_PIX,WAVE_WIDGET_HEIGHT_PIX);
-            iHLayout +=WAVE_WIDGET_HEIGHT_PIX;
+            cfg.m_wave_rec = QRect(0,iHLayout,g_WaveWidgetWidthPix,g_WaveWidgetHeightPix);
+            iHLayout +=g_WaveWidgetHeightPix;
             cfg.m_wave_indx= index++;
             g_CO2Module->f_set_cfg(cfg);
             g_CO2Module->f_set_wave_layout();
@@ -149,9 +149,9 @@ void CLayoutModule::f_set_stand_layout()
         {
             cfg.m_wave_rec = QRect(0,
                                    iHLayout,
-                                   WAVE_WIDGET_WIDTH_PIX,
-                                   WAVE_WIDGET_HEIGHT_PIX-2);
-             iHLayout +=WAVE_WIDGET_HEIGHT_PIX-2;
+                                   g_WaveWidgetWidthPix,
+                                   g_WaveWidgetHeightPix-2);
+             iHLayout +=g_WaveWidgetHeightPix-2;
              cfg.m_wave_indx= index++;
            g_EcgModule->f_set_spo2_cfg(cfg);
            g_EcgModule->f_set_spo2_wave_layout();
@@ -165,9 +165,9 @@ void CLayoutModule::f_set_stand_layout()
         {
             cfg.m_wave_rec = QRect(0,
                                    iHLayout,
-                                   WAVE_WIDGET_WIDTH_PIX,
-                                   WAVE_WIDGET_HEIGHT_PIX-2);
-            iHLayout +=WAVE_WIDGET_HEIGHT_PIX-2;
+                                   g_WaveWidgetWidthPix,
+                                   g_WaveWidgetHeightPix-2);
+            iHLayout +=g_WaveWidgetHeightPix-2;
             cfg.m_wave_indx= index++;
             g_EcgModule->f_set_spire_cfg(cfg);
             g_EcgModule->f_set_spire_wave_layout();
@@ -183,10 +183,10 @@ void CLayoutModule::f_set_stand_layout()
         /*
         //if(cfg.m_wave_plot_enable[i] == true)
         {
-            cfg.m_ibp1_wave_rec = QRect(0,iHLayout,WAVE_WIDGET_WIDTH_PIX,WAVE_WIDGET_HEIGHT_PIX);
-            iHLayout +=WAVE_WIDGET_HEIGHT_PIX;
-            cfg.m_ibp2_wave_rec = QRect(0,iHLayout,WAVE_WIDGET_WIDTH_PIX,WAVE_WIDGET_HEIGHT_PIX);
-            iHLayout +=WAVE_WIDGET_HEIGHT_PIX;
+            cfg.m_ibp1_wave_rec = QRect(0,iHLayout,g_WaveWidgetWidthPix,g_WaveWidgetHeightPix);
+            iHLayout +=g_WaveWidgetHeightPix;
+            cfg.m_ibp2_wave_rec = QRect(0,iHLayout,g_WaveWidgetWidthPix,g_WaveWidgetHeightPix);
+            iHLayout +=g_WaveWidgetHeightPix;
 
             g_IBPModule1->f_set_cfg(cfg);
             g_IBPModule1->f_set_wave_layout();

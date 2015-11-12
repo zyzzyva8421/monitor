@@ -789,24 +789,24 @@ void CEcgModule::f_plot_ecg_wave(int data1,int data2,int data3)
     //V
     double x=0;
 
-    if(m_ecg_cfg->m_ecg_wave_speed == 0) //12.5mm/s
+    if(m_ecg_cfg->m_ecg_wave_speed == 0) //3.125mm/s
     {
-        x = 0.082954545;//1*730/(500*17.6); // (730[pix]/220[mm])* 12.5[mm/s] / (500[Byte/s]) = pix/Byte
+        x = g_PixPerByte_3_125mm;
     }
-    else if(m_ecg_cfg->m_ecg_wave_speed == 1) // 25mm/s
+    else if(m_ecg_cfg->m_ecg_wave_speed == 1) // 6.25mm/s
     {
-        x = 0.16590909;//1*730/(500*8.8);
+        x = g_PixPerByte_6_25mm;
     }
-    else if(m_ecg_cfg->m_ecg_wave_speed == 2) // 50mm/s
+    else if(m_ecg_cfg->m_ecg_wave_speed == 2) // 12.5mm/s
     {
-        x= 0.3181818;//1*730/(500*4.4);
+        x= g_PixPerByte_12_5mm;
     }
     for(int i = 0;i<ECG_MODULE_WAVE_NUM;i++)
     {
         m_ecg_pos[i] +=x;
-        if(m_ecg_pos[i]>= (WAVE_WIDGET_WIDTH_PIX-1))
+        if(m_ecg_pos[i]>= (g_WaveWidgetWidthPix-1))
         {
-            m_ecg_pos[i] -= (WAVE_WIDGET_WIDTH_PIX-1);
+            m_ecg_pos[i] -= (g_WaveWidgetWidthPix-1);
             limit_flag = true;
 
         }
@@ -1324,21 +1324,21 @@ void CEcgModule::f_plot_spire_wave(int data)
     double x=0;
     if(m_spire_cfg->m_spire_wave_speed == 0) //6.25mm/s
     {
-       x = 0.16590909;
+       x = g_PixPerByte_6_25mm;
     }
     else if(m_spire_cfg->m_spire_wave_speed == 1) // 12.5mm/s
     {
-         x = 0.3181818;//1*730/(500*17.6); // (730[pix]/220[mm])* 12.5[mm/s] / (125[Byte/s]) = pix/Byte
+         x = g_PixPerByte_12_5mm;
     }
     else if(m_spire_cfg->m_spire_wave_speed == 2) // 25mm/s
     {
-        x = 0.66363636;//1*730/(125*8.8);
+        x = g_PixPerByte_25mm;
     }
 
     m_spire_pos +=x;
-    if(m_spire_pos>= (WAVE_WIDGET_WIDTH_PIX-1))
+    if(m_spire_pos>= (g_WaveWidgetWidthPix-1))
     {
-        m_spire_pos -= (WAVE_WIDGET_WIDTH_PIX-1);
+        m_spire_pos -= (g_WaveWidgetWidthPix-1);
         limit_flag = true;
 
     }
@@ -1669,14 +1669,14 @@ void CEcgModule::f_plot_spo2_wave(int data)
     }
     else if(m_spo2_cfg->m_spo2_wave_speed == 1) // 25mm/s
     {
-        x = 0.66363636;//1*730/(125*8.8);
+        x = g_PixPerByte_25mm;
     }
 
 
     m_spo2_pos +=x;
-    if(m_spo2_pos>= (WAVE_WIDGET_WIDTH_PIX-1))
+    if(m_spo2_pos>= (g_WaveWidgetWidthPix-1))
     {
-        m_spo2_pos -= (WAVE_WIDGET_WIDTH_PIX-1);
+        m_spo2_pos -= (g_WaveWidgetWidthPix-1);
         limit_flag = true;
 
     }

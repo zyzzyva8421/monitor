@@ -98,11 +98,11 @@ void CIBPModu::f_setDefaultCfg()
     m_modu_cfg->m_chanel2_ruler_high = 10;
     m_modu_cfg->m_chanel2_ruler_low = 0;
     m_modu_cfg->m_ibp1_wave_rec = QRect(0,STATUS_BAR_WIDGET_HEIGHT,
-                                        WAVE_WIDGET_WIDTH_PIX,
-                                        WAVE_WIDGET_HEIGHT_PIX);
+                                        g_WaveWidgetWidthPix,
+                                        g_WaveWidgetHeightPix);
     m_modu_cfg->m_ibp1_wave_rec = QRect(0,STATUS_BAR_WIDGET_HEIGHT,
-                                        WAVE_WIDGET_WIDTH_PIX,
-                                        WAVE_WIDGET_HEIGHT_PIX);
+                                        g_WaveWidgetWidthPix,
+                                        g_WaveWidgetHeightPix);
     m_modu_cfg->m_ibp1_wave_enable = false;
     m_modu_cfg->m_ibp2_wave_enable = false;
      m_modu_cfg->m_ibp1_wave_indx = 0;

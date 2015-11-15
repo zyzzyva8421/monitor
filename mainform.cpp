@@ -84,7 +84,7 @@ CMainForm::CMainForm(QWidget* parent,Qt::WindowFlags f)
     connect(m_btn_serve,SIGNAL(clicked()),this,SLOT(slot_btn_serve_clicked()));
 */
    /////////////////////////////////////////////////////////////////////////////////////
-//    g_gpioModu = new CGPIOMODU(this) ;
+    g_gpioModu = new CGPIOMODU(this) ;
     //g_gpioModu->f_set_12v_en(false);
     g_PlayThread = new CPlayThread() ;
 
@@ -204,7 +204,6 @@ void CMainForm::slot_btn_serve_clicked()
     pos.setY(-serve_menu->sizeHint().height());
     serve_menu->exec(this->m_btn_serve->mapToGlobal(pos));
 }
-
 void CMainForm::slot_para_ecg_value_changed(stEcgValue val)
 {
 
@@ -647,7 +646,7 @@ void CMainForm::f_set_standard_layout()
     setLocale(QLocale(QLocale::Chinese, QLocale::China));
 
     // ECG Standard Layout
-    frame_ECG->setGeometry(QRect(730, 146, 292, 90));
+    //rame_ECG->setGeometry(QRect(730, 146, 292, 90));
     TextLabel_XinLv_ShangXian->show();
     TextLabel_XinLv_XiaXian->show();
     TextLabel_XinLv_STkaiguan1->show();
@@ -656,19 +655,19 @@ void CMainForm::f_set_standard_layout()
     TextLabel_XinLv_STkaiguan2_Text->show();
 
     // Temprature Standdar Layout
-    frame_temp->setGeometry(QRect(730, 655, 292, 72));
+    //frame_temp->setGeometry(QRect(730, 655, 292, 72));
     TextLabel_TiWen_SheShiDu->show();
 
     // IBP2 Standard Layout
-    frame_ibp2->setGeometry(QRect(730, 492, 292, 80));
-    frame_ibp2->show();
+    //frame_ibp2->setGeometry(QRect(730, 492, 292, 80));
+    //frame_ibp2->show();
 
     // IBP1 Standard Layout
-    frame_ibp1->setGeometry(QRect(730, 410, 292, 80));
-    frame_ibp1->show();
+    //frame_ibp1->setGeometry(QRect(730, 410, 292, 80));
+    //frame_ibp1->show();
 
     // NIBP Standard Layout
-    frame_nibp->setGeometry(QRect(730, 319, 292, 90));
+    //frame_nibp->setGeometry(QRect(730, 319, 292, 90));
     TextLabel_WuChuangXueYa_XiaXian->show();
     TextLabel_WuChuangXueYa_ShangXian->show();
     TextLabel_WuChuangXueYa_fenzhong->show();
@@ -676,18 +675,18 @@ void CMainForm::f_set_standard_layout()
     TextLabel_WuChuangXueYa_xiudaiya_value->show();
 
     // Mashen Standard  Layout
-    frame_mashen->setGeometry(QRect(730, 33, 292, 112));
-    frame_mashen->show();
+    //frame_mashen->setGeometry(QRect(730, 33, 292, 112));
+   // frame_mashen->show();
 
     // SPO2 Standard Layout
-    frame_spo2->setGeometry(QRect(730, 237, 292, 80));
+    //frame_spo2->setGeometry(QRect(730, 237, 292, 80));
     TextLabel_XueYang_XiaXian->show();
     TextLabel_XueYang_ShangXian->show();
     TextLabel_MaiLv_ShangXian->show();
     TextLabel_MaiLv_XiaXian->show();
 
     // SP Standard Layout
-    frame_sp->setGeometry(QRect(730, 573, 292, 80));
+    //frame_sp->setGeometry(QRect(730, 573, 292, 80));
     TextLabel_HuXiLv_ShangXian->show();
     TextLabel_HuXiLv_XiaXian->show();
     TextLabel_HuXiLvCo2_Co2_ShangXian->show();
@@ -1206,7 +1205,7 @@ void CMainForm::f_set_standard_layout()
 void CMainForm::f_set_big_font_layout()
 {
     // ECG Big Font Layout
-    frame_ECG->setGeometry(QRect(591, 35, 430, 215));
+   // frame_ECG->setGeometry(QRect(590, 35, 430, 215));
     TextLabel_XinLv_ShangXian->hide();
     TextLabel_XinLv_XiaXian->hide();
     TextLabel_XinLv_STkaiguan1->hide();
@@ -1215,11 +1214,11 @@ void CMainForm::f_set_big_font_layout()
     TextLabel_XinLv_STkaiguan2_Text->hide();
 
     // Temparture Big Font Layout
-    frame_temp->setGeometry(QRect(590, 600, 430, 120));
+    //frame_temp->setGeometry(QRect(590, 600, 430, 120));
     TextLabel_TiWen_SheShiDu->hide();
 
     // NIBP Standard Layout
-    frame_nibp->setGeometry(QRect(5, 480, 580, 240));
+    //frame_nibp->setGeometry(QRect(5, 480, 580, 240));
     TextLabel_WuChuangXueYa_XiaXian->hide();
     TextLabel_WuChuangXueYa_ShangXian->hide();
     TextLabel_WuChuangXueYa_fenzhong->hide();
@@ -1227,14 +1226,14 @@ void CMainForm::f_set_big_font_layout()
     TextLabel_WuChuangXueYa_xiudaiya_value->hide();
 
     // SPO2 Big Font Layout
-    frame_spo2->setGeometry(QRect(590, 380, 430, 215));
+    //frame_spo2->setGeometry(QRect(590, 380, 430, 215));
     TextLabel_XueYang_XiaXian->hide();
     TextLabel_XueYang_ShangXian->hide();
     TextLabel_MaiLv_ShangXian->hide();
     TextLabel_MaiLv_XiaXian->hide();
 
     // SP Big Font Layout
-     frame_sp->setGeometry(QRect(590, 255, 430, 120));
+     //frame_sp->setGeometry(QRect(590, 255, 430, 120));
      TextLabel_HuXiLv_ShangXian->hide();
      TextLabel_HuXiLv_XiaXian->hide();
      TextLabel_HuXiLvCo2_Co2_ShangXian->hide();

@@ -36,6 +36,7 @@ public:
     void f_layout_set_def_config();
 
 private:
+    void f_set_wave_layout();
     void f_layout_hint(CLayoutCfg cfg);
     void f_set_stand_layout();
     void f_set_bigfont_layout();

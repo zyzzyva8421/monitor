@@ -529,6 +529,44 @@ void CDlgSetScreenLayout::f_set_bigfont_layout()
     {
         ckb[i]->setEnabled(true);
     }
+
+    m_ckb_xinlv->setChecked(m_ecg_cfg.m_ecg_para_enable);
+    m_ckb_xueyang->setChecked(m_spo2_cfg.m_spo2_para_enable);
+    m_ckb_huxilv->setChecked(m_spire_cfg.m_spire_para_enable);
+    m_ckb_tiwen->setChecked(m_temp_cfg.m_temp_para_enable);
+    m_ckb_nibp->setChecked(m_nibp_cfg.m_nibp_para_enable);
+    m_ckb_mshen->setChecked(m_anaes_cfg.m_para_enable);
+    m_ckb_ibp1->setChecked(m_ibp_cfg.m_ibp1_panel_enable);
+    m_ckb_ibp2->setChecked(m_ibp_cfg.m_ibp1_panel_enable);
+    m_ckb_co2->setChecked(m_co2_cfg.m_para_enable);
+    m_ckb_wav_eeg->setChecked(m_eeg_cfg.m_wave_plot_enable[0]);
+    m_ckb_wav_ecg1->setChecked(m_ecg_cfg.m_wave_plot_enable[0]);
+    m_ckb_wav_ecg2->setChecked(m_ecg_cfg.m_wave_plot_enable[1]);
+    m_ckb_wav_ecg3->setChecked(m_ecg_cfg.m_wave_plot_enable[2]);
+    m_ckb_wav_ecg4->setChecked(m_ecg_cfg.m_wave_plot_enable[3]);
+    m_ckb_wav_ecg5->setChecked(m_ecg_cfg.m_wave_plot_enable[4]);
+    m_ckb_wav_ecg6->setChecked(m_ecg_cfg.m_wave_plot_enable[5]);
+    m_ckb_wav_ecg7->setChecked(m_ecg_cfg.m_wave_plot_enable[6]);
+    m_ckb_wav_maibo->setChecked(m_spo2_cfg.m_wave_enable);
+    m_ckb_wav_huxi->setChecked(m_spire_cfg.m_wave_enable);
+    m_ckb_wav_ibp1->setChecked(m_ibp_cfg.m_ibp1_wave_enable);
+    m_ckb_wav_ibp2->setChecked(m_ibp_cfg.m_ibp2_wave_enable);
+    m_ckb_wav_co2->setChecked(m_co2_cfg.m_wave_enable);
+    m_ckb_wav_mashen->setChecked(m_anaes_cfg.m_wave_enable);
+    //波形部分
+    ckb[19]->setCheckState(Qt::Unchecked);
+    ckb[19]->setEnabled(false);
+    ckb[20]->setCheckState(Qt::Unchecked);
+    ckb[20]->setEnabled(false);
+    ckb[22]->setCheckState(Qt::Unchecked);
+    ckb[22]->setEnabled(false);
+        //心电波形
+
+    for(int i=13;i<17;i++)
+    {
+        ckb[i]->setCheckState(Qt::Unchecked);
+        ckb[i]->setEnabled(false);
+    }
 }
 void CDlgSetScreenLayout::f_set_spirspo_layout()
 {

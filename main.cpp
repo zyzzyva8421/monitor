@@ -57,8 +57,8 @@ int main(int argc, char* argv[])
     }
     CMainForm form;
     form.show();
-//    form.f_set_big_font_layout();
-    form.f_set_standard_layout();
+ //   form.f_set_big_font_layout();
+ //   form.f_set_standard_layout();
 
 /*
     QFile inputFile;

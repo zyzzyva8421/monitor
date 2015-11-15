@@ -28,7 +28,7 @@ WavePlotter::WavePlotter(QWidget *parent)
     pixmap = new QPixmap(size());
     pixmap->fill(this, 0, 0);
 
-
+    bRestScreenFlg = false; //重置屏幕标志
     setPlotSettings(WavePlotSettings());
 
 
@@ -47,13 +47,14 @@ WavePlotter::WavePlotter(QWidget *parent)
     //设置各个通道的参数
     for(int i=0;i<MAX_PLOT_CURVES;i++)
     {
-        fLastPoint[i] = QPointF(0,0);
+
          iStopPositon[i] = 0;
          wavenames[i].setText("Wave "+QString::number(i,10));
          wavecolors[i] = colorForIds[i%6];
          iWaveOffsetY[i] = 10+i*g_WaveWidgetHeightPix;
          iLastXpixAuto[i] = iStopPositonAuto[i] = 0;
          iWaveHeight[i] = g_WaveWidgetHeightPix;
+         fLastPoint[i] = QPointF(0, iWaveOffsetY[i]);
     }
     QRect ret(0,
               STATUS_BAR_WIDGET_HEIGHT,
@@ -136,6 +137,7 @@ void WavePlotter::setCurveDatas(QMap<int, QVector<QPointF> > &data,QVector<int >
     for(int i = 0;i<iStop.count();i++)
     {
         iStopPositon[i] = iStop[i];
+
     }
     //QMutexLocker locker(&m_mutex_pixmap);
     if(pixmap == 0)
@@ -162,6 +164,7 @@ void WavePlotter::clearCurve(int id)
 void WavePlotter::clearScreen() //clear
 {
     //maybe cause core down because of non protection of "pixmap"
+    /*
     QMutexLocker locker(&m_mutex_pixmap);
     if(pixmap)
     {
@@ -173,6 +176,17 @@ void WavePlotter::clearScreen() //clear
         fLastPoint[i] = QPointF(0,0);
         iStopPositonAuto[i] = 0;
     }
+    */
+    QMapIterator<int, QVector<QPointF> > i(curveMap);
+    while (i.hasNext()) {
+        i.next();
+        int id = i.key();
+        curveMap.remove(id);
+        //fLastPoint[id] = QPointF(0,0);
+        //iStopPositonAuto[id] = 0;
+    }
+    bRestScreenFlg = true;
+
 }
 
 QSize WavePlotter::minimumSizeHint() const
@@ -193,6 +207,7 @@ void WavePlotter::paintEvent(QPaintEvent *)
         if(pixmap)
         {
             //pixmap_cpy = *pixmap;
+
             painter.drawPixmap(0, 0, *pixmap);
         }
         //painter.drawPixmap(0, 0, pixmap_cpy);
@@ -509,6 +524,25 @@ void WavePlotter::drawCurves(QPainter *painter)
 
     painter->setClipRect(rect.adjusted(+1, +1, -1, -1));
 
+    if(bRestScreenFlg == true)
+    {
+        bRestScreenFlg = false;
+
+        painter->setPen(Qt::white);
+        painter->setBrush(QBrush(Qt::black,Qt::SolidPattern));
+        painter->drawRect(0,
+                          0,
+                          g_WaveWidgetWidthPix,
+                          g_WaveWidgetAllHeightPix);
+        for(int i = 0;i<MAX_PLOT_CURVES;i++)
+        {
+
+            double y = fLastPoint[i].y();
+            fLastPoint[i] = QPointF(0,y);
+            iLastXpix[i] = 0;
+        }
+    }
+
     QMapIterator<int, QVector<QPointF> > i(curveMap);
     while (i.hasNext()) {
         i.next();
@@ -520,10 +554,15 @@ void WavePlotter::drawCurves(QPainter *painter)
         polyline[0] = fLastPoint[id];
         for (int j = 0; j < data.count(); ++j) {
             double x = data[j].x()+iLastXpix[id];
+            if(x>=g_WaveWidgetWidthPix)
+            {
+                x -= g_WaveWidgetWidthPix;
+            }
             double  y= data[j].y();
             y += iWaveOffsetY[id];
             polyline[j+1] = QPointF(x, y);
 
+            iStopPositon[id] = x;
         }
         fLastPoint[id] = polyline[data.count()];
         //if((fLastPoint[id].x() >1))
@@ -541,12 +580,21 @@ void WavePlotter::drawCurves(QPainter *painter)
         }
         painter->setPen(Qt::black);
         painter->setBrush(QBrush(Qt::black,Qt::SolidPattern));
-        painter->drawRect(iStopPositon[id],iWaveOffsetY[id],10,iWaveHeight[id]);
-        painter->setPen(wavecolors[id]);
-        painter->drawStaticText(20,iWaveOffsetY[id]+10,wavenames[id]);
+        painter->drawRect(iStopPositon[id]+1,iWaveOffsetY[id],10,iWaveHeight[id]);
+        //painter->setPen(wavecolors[id]);
+        //painter->drawStaticText(20,iWaveOffsetY[id]+10,wavenames[id]);
         iLastXpix[id] = iStopPositon[id];
+    }
 
 
+
+    for(int j = 0;j<MAX_PLOT_CURVES;j++)
+    {
+        if(!wavenames[j].text().isEmpty())
+        {
+            painter->setPen(wavecolors[j]);
+            painter->drawStaticText(20,iWaveOffsetY[j]+10,wavenames[j]);
+        }
     }
 }
 void WavePlotter::setGeometry(QRect &rect)
@@ -561,6 +609,7 @@ void WavePlotter::setGeometry(QRect &rect)
 void WavePlotter::setWaveName(int chnl , QString strWavName,int OffsetY,int height)//设置通道名称；
 {
     wavename.setText(strWavName);
+    /*
     QMutexLocker locker(&m_mutex_pixmap);
     if(pixmap == 0)
      {
@@ -568,15 +617,16 @@ void WavePlotter::setWaveName(int chnl , QString strWavName,int OffsetY,int heig
     }
     QPainter painter(pixmap);
     painter.initFrom(this);
+    */
     if((chnl<MAX_PLOT_CURVES)&&(chnl>=0))
     {
         wavenames[chnl].setText(strWavName);
         iWaveOffsetY[chnl] = OffsetY;
-        fLastPoint[chnl]=QPointF(0,iWaveOffsetY[chnl]);
-        painter.setPen(wavecolors[chnl]);
-        painter.drawStaticText(20,iWaveOffsetY[chnl]+10,wavenames[chnl]);
+        //fLastPoint[chnl]=QPointF(0,iWaveOffsetY[chnl]);
+        //painter.setPen(wavecolors[chnl]);
+        //painter.drawStaticText(20,iWaveOffsetY[chnl]+10,wavenames[chnl]);
         iWaveHeight[chnl] = height;
-        iLastXpix[chnl] = iStopPositon[chnl] = 0;
+        //iLastXpix[chnl] = iStopPositon[chnl] = 0;
 
     }
 

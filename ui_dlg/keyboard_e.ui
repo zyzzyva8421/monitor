@@ -13,56 +13,43 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton_1">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>1</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="pushButton_31">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>0</y>
+     <y>90</y>
      <width>40</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>2</string>
+    <string>V</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="pushButton_23">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>0</y>
+     <x>240</x>
+     <y>60</y>
      <width>40</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>3</string>
+    <string>Q</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="pushButton_18">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>0</y>
+     <x>40</x>
+     <y>30</y>
      <width>40</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>4</string>
+    <string>B</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_5">
@@ -78,30 +65,108 @@
     <string>5</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="pushButton_11">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>0</y>
+     <x>360</x>
+     <y>30</y>
      <width>40</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>6</string>
+    <string>J</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_7">
+  <widget class="QPushButton" name="pushButton_25">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>0</x>
+     <y>90</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>U</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_33">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>90</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_15">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>30</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>H</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_36">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>60</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>R</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_10">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
      <y>0</y>
      <width>40</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>7</string>
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_21">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>90</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Y</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>0</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>2</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_8">
@@ -117,6 +182,266 @@
     <string>8</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>0</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>4</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_32">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>90</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>小写</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_29">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>60</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>S</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_38">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>60</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>K</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_26">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>60</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>M</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>0</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>7</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_27">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>60</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>N</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_39">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>90</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_17">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>30</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>I</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>1</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_19">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>30</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>C</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_40">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>60</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>O</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_16">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>30</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>A</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_30">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>90</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Z</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_34">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>60</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>T</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>0</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>3</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>0</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>6</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_12">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>30</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>D</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_24">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>90</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;--</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_13">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>30</y>
+     <width>40</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>G</string>
+   </property>
+  </widget>
   <widget class="QPushButton" name="pushButton_9">
    <property name="geometry">
     <rect>
@@ -130,59 +455,20 @@
     <string>9</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_0">
+  <widget class="QPushButton" name="pushButton_28">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>0</y>
+     <x>200</x>
+     <y>60</y>
      <width>40</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>0</string>
+    <string>P</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_j">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>30</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>j</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_d">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>30</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>d</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_g">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>30</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>g</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_f">
+  <widget class="QPushButton" name="pushButton_14">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -192,75 +478,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>f</string>
+    <string>F</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_h">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>30</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>h</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_a">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>30</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>a</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_i">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>30</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>i</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_b">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>30</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>b</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_c">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>30</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>c</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_e">
+  <widget class="QPushButton" name="pushButton_20">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -270,23 +491,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>e</string>
+    <string>E</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_y">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>90</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>y</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_space">
+  <widget class="QPushButton" name="pushButton_22">
    <property name="geometry">
     <rect>
      <x>240</x>
@@ -299,163 +507,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_q">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>60</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>q</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_backspace">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>90</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;--</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_u">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>90</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>u</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_m">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>60</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>m</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_n">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>60</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>n</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_p">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>60</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>p</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_s">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>60</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>s</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_z">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>90</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>z</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_v">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>90</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>v</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_caps">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>90</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>小写</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_x">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>90</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>x</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_t">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>60</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>t</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_l">
+  <widget class="QPushButton" name="pushButton_35">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -465,23 +517,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>l</string>
+    <string>L</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_r">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>60</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>r</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_w">
+  <widget class="QPushButton" name="pushButton_37">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -491,46 +530,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>w</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_k">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>60</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>k</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_ok">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>90</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>OK</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_o">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>60</y>
-     <width>40</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>o</string>
+    <string>W</string>
    </property>
   </widget>
  </widget>

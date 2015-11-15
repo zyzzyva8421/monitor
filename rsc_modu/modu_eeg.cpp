@@ -346,6 +346,7 @@ void CEegModule::f_plot_eeg_wave(char * data)
     char tmp[8] = {0};
     short value = 0;
     bool limit_flag = false;
+    double dstep = 0;
     QVector<QPointF> tempint;
 
     if(!m_eeg_cfg->m_wave_plot_enable[0])
@@ -484,7 +485,7 @@ void CEegModule::f_plot_eeg_wave(char * data)
         y[7] =m_eeg_cfg->m_wave_rec[7].height()+(m_eeg_cfg->m_wave_rec[7].height()>>1)
                 - (value)*m_eeg_cfg->m_wave_rec[7].height() / 256;
     }
-
+/*
     if(limit_flag == true)
     {
         for(int i=0;i<ECG_MODULE_WAVE_NUM;i++)
@@ -529,6 +530,35 @@ void CEegModule::f_plot_eeg_wave(char * data)
             m_eeg_last_pos[i] = m_eeg_pos[i];
         }
     }
+    */
+     if(m_eeg_pos[0] >= (m_eeg_last_pos[0] ))//plot 1 pix,do not plot if less than 1pix.
+     {
+         dstep = m_eeg_pos[0] - m_eeg_last_pos[0];
+     }
+     else
+     {
+         dstep = m_eeg_pos[0] +g_WaveWidgetWidthPix- m_eeg_last_pos[0];
+     }
+     if(dstep >=0)
+     {
+         for(int i=0;i<EEG_MODULE_WAVE_NUM;i++)
+         {
+             if(m_eeg_cfg->m_wave_plot_enable[i])
+             {
+                 tempint.append(QPointF(dstep,y[i]));
+                 {
+                     //QMutexLocker locker(&m_mutex_wave_ecg);
+                     //m_ecg_data_to_draw[i].append(QPointF(m_ecg_pos[i],y[i]));
+                     //m_eeg_last_pos[i] = m_eeg_pos[i];
+
+                 }
+                 //g_WavePlotter->setCurveData(m_eeg_cfg->m_wave_indx[i], tempint,m_eeg_pos[i]);
+                 g_drawThread->f_draw_eeg(m_eeg_cfg->m_wave_indx[i], tempint,m_eeg_pos[i]);
+                 tempint.clear();
+             }
+             m_eeg_last_pos[i] = m_eeg_pos[i];
+         }
+     }
 }
 int CEegModule::f_get_wave_mode()
 {

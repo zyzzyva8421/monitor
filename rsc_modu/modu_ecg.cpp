@@ -765,6 +765,7 @@ void CEcgModule::f_plot_ecg_wave(int data1,int data2,int data3)
 
     double y[7] = {0};
     bool limit_flag = false;
+    double dstep = 0;
     QVector<QPointF> tempint;
     if(m_ecg_cfg->m_ecg_chanel1_lead == ECG_MODULE_LEAD_II)
     {
@@ -808,7 +809,7 @@ void CEcgModule::f_plot_ecg_wave(int data1,int data2,int data3)
 
         }
     }
-
+    /*
     if(limit_flag == true)
     {
         for(int i=0;i<ECG_MODULE_WAVE_NUM;i++)
@@ -828,15 +829,47 @@ void CEcgModule::f_plot_ecg_wave(int data1,int data2,int data3)
             m_ecg_last_pos[i] = m_ecg_pos[i];
         }
     }
+
     if(m_ecg_pos[0] >= (m_ecg_last_pos[0] +1))//plot 1 pix,do not plot if less than 1pix.
     {
 
-
+        //double x = m_ecg_pos[0] - m_ecg_last_pos[0];
         for(int i=0;i<ECG_MODULE_WAVE_NUM;i++)
         {
             if(m_ecg_cfg->m_wave_plot_enable[i])
             {
+
                 tempint.append(QPointF(x,y[i]));
+                {
+                    //QMutexLocker locker(&m_mutex_wave_ecg);
+                    //m_ecg_data_to_draw[i].append(QPointF(m_ecg_pos[i],y[i]));
+                    ///m_ecg_last_pos[i] = m_ecg_pos[i];
+                }
+                //g_WavePlotter->setCurveData(m_ecg_cfg->m_wave_indx[i], tempint,m_ecg_pos[i]);
+                g_drawThread->f_draw_ecg(m_ecg_cfg->m_wave_indx[i], tempint,m_ecg_pos[i]);
+                tempint.clear();
+            }
+            m_ecg_last_pos[i] = m_ecg_pos[i];
+        }
+    }*/
+
+    if(m_ecg_pos[0] >= (m_ecg_last_pos[0]))//plot 1 pix,do not plot if less than 1pix.
+    {
+        dstep = m_ecg_pos[0] - m_ecg_last_pos[0];
+    }
+    else
+    {
+        dstep = m_ecg_pos[0] +g_WaveWidgetWidthPix- m_ecg_last_pos[0];
+    }
+    if(dstep >=1)
+    {
+        //double x = m_ecg_pos[0] - m_ecg_last_pos[0];
+        for(int i=0;i<ECG_MODULE_WAVE_NUM;i++)
+        {
+            if(m_ecg_cfg->m_wave_plot_enable[i])
+            {
+
+                tempint.append(QPointF(dstep,y[i]));
                 {
                     //QMutexLocker locker(&m_mutex_wave_ecg);
                     //m_ecg_data_to_draw[i].append(QPointF(m_ecg_pos[i],y[i]));
@@ -1311,6 +1344,7 @@ void CEcgModule::f_plot_spire_wave(int data)
 
     double y = 0;
     bool limit_flag = false;
+    double dstep = 0;
     QVector<QPointF> tempint;
 
     y = m_spire_cfg->m_wave_rec.height()-data * m_spire_cfg->m_wave_rec.height() / 256; //
@@ -1338,7 +1372,7 @@ void CEcgModule::f_plot_spire_wave(int data)
 
     }
 
-
+/*
     if(limit_flag == true)
     {
         if(m_spire_cfg->m_wave_enable)
@@ -1368,6 +1402,30 @@ void CEcgModule::f_plot_spire_wave(int data)
         m_spire_last_pos = m_spire_pos;
 
     }
+ */
+    if(m_spire_pos >= m_spire_last_pos)
+    {
+        dstep = m_spire_pos - m_spire_last_pos;
+    }
+    else
+    {
+        dstep = m_spire_pos + g_WaveWidgetWidthPix - m_spire_last_pos;
+    }
+    if(dstep >=1)
+    {
+        if(m_spire_cfg->m_wave_enable)
+        {
+            tempint.append(QPointF(dstep,y));
+            //QMutexLocker locker(&m_mutex_wave_spire);
+            //m_spire_data_to_draw.append(QPointF(m_spire_pos,y));
+           // g_WavePlotter->setCurveData(m_spire_cfg->m_wave_indx, tempint,m_spire_pos);
+            g_drawThread->f_draw_spire(m_spire_cfg->m_wave_indx, tempint,m_spire_pos);
+            tempint.clear();
+        }
+        m_spire_last_pos = m_spire_pos;
+    }
+
+
 /*    for(int i=0; i<data.count();i++)
     {
         if(m_spo2_data_to_draw.size()<8200)
@@ -1671,6 +1729,7 @@ void CEcgModule::f_plot_spo2_wave(int data)
 {
     double y = 0;
     bool limit_flag = false;
+    double dstep = 0;
     QVector<QPointF> tempint;
 
     y = m_spo2_cfg->m_wave_rec.height()-data * m_spo2_cfg->m_wave_rec.height() / 256; //
@@ -1695,7 +1754,7 @@ void CEcgModule::f_plot_spo2_wave(int data)
 
     }
 
-
+/*
     if(limit_flag == true)
     {
         if(m_spo2_cfg->m_wave_enable)
@@ -1722,6 +1781,26 @@ void CEcgModule::f_plot_spo2_wave(int data)
         }
         m_spo2_last_pos = m_spo2_pos;
 
+    }
+    */
+    if(m_spo2_pos >= m_spo2_last_pos)
+    {
+        dstep = m_spo2_pos - m_spo2_last_pos;
+    }
+    else
+    {
+        dstep = m_spo2_pos + g_WaveWidgetWidthPix - m_spo2_last_pos;
+    }
+    if(dstep >=1)
+    {
+        if(m_spo2_cfg->m_wave_enable)
+        {
+            tempint.append(QPointF(dstep,y));
+            //g_WavePlotter->setCurveData(m_spo2_cfg->m_wave_indx, tempint,m_spo2_pos);
+            g_drawThread->f_draw_spo2(m_spo2_cfg->m_wave_indx, tempint,m_spo2_pos);
+            tempint.clear();
+        }
+        m_spo2_last_pos = m_spo2_pos;
     }
 }
 void CEcgModule::f_set_spire_wave_color(int color)

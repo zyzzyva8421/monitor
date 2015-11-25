@@ -32,6 +32,7 @@ typedef QVector<QPointF> stWavedata;
 extern int g_WaveWidgetWidthPix;
 extern int g_WaveWidgetAllHeightPix;
 extern int g_WaveWidgetHeightPix;
+extern int g_WaveNumber;
 
 extern double g_PixPerByte_3_125mm;
 extern double g_PixPerByte_6_25mm;

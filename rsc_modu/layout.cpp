@@ -62,7 +62,7 @@ void CLayoutModule::f_layout_hint(CLayoutCfg cfg)
 {
     // update wave size
         // calculate wave number
-    int iWaveNum = 0;
+    g_WaveNumber = 0;
     {
         CEegModuleCfg cfg;
         g_EegModule->f_get_eeg_cfg(&cfg);
@@ -71,7 +71,7 @@ void CLayoutModule::f_layout_hint(CLayoutCfg cfg)
         {
             if(cfg.m_wave_plot_enable[i] == true)
             {
-                iWaveNum++;
+                g_WaveNumber++;
             }
         }
     }
@@ -87,7 +87,7 @@ void CLayoutModule::f_layout_hint(CLayoutCfg cfg)
             }
             if(ecg_cfg.m_wave_plot_enable[i] == true)
             {
-                iWaveNum++;
+                g_WaveNumber++;
             }
         }
 
@@ -96,7 +96,7 @@ void CLayoutModule::f_layout_hint(CLayoutCfg cfg)
         g_CO2Module->f_get_cfg(&cfg);
         if(cfg.m_wave_enable == true)
         {
-            iWaveNum++;
+            g_WaveNumber++;
         }
 
     }
@@ -105,20 +105,20 @@ void CLayoutModule::f_layout_hint(CLayoutCfg cfg)
         g_EcgModule->f_get_spo2_cfg(&spo2_cfg);
         if(spo2_cfg.m_wave_enable == true)
         {
-            iWaveNum++;
+            g_WaveNumber++;
         }
 
         CSpireModuleCfg spire_cfg;
         g_EcgModule->f_get_spire_cfg(&spire_cfg);
         if(spire_cfg.m_wave_enable == true)
         {
-            iWaveNum++;
+            g_WaveNumber++;
         }
 
         stIBPModuCfg ibp_cfg;
         g_IBPModule1->f_get_cfg(&ibp_cfg);
-        if (ibp_cfg.m_ibp1_wave_enable == true) iWaveNum++;
-        if (ibp_cfg.m_ibp2_wave_enable == true) iWaveNum++;
+        if (ibp_cfg.m_ibp1_wave_enable == true) g_WaveNumber++;
+        if (ibp_cfg.m_ibp2_wave_enable == true) g_WaveNumber++;
         /*
         //if(cfg.m_wave_plot_enable[i] == true)
         {
@@ -133,7 +133,7 @@ void CLayoutModule::f_layout_hint(CLayoutCfg cfg)
 
         stAnaesDepModuCfg anaesdep_cfg;
         g_AnaesModule->f_get_cfg(&anaesdep_cfg);
-        if (anaesdep_cfg.m_wave_enable == true) iWaveNum++;
+        if (anaesdep_cfg.m_wave_enable == true) g_WaveNumber++;
 
         CNibpModuleCfg nibp_cfg;
         g_EcgModule->f_get_nibp_cfg(&nibp_cfg);
@@ -213,7 +213,7 @@ void CLayoutModule::f_layout_hint(CLayoutCfg cfg)
         }
         g_WaveWidgetWidthPix =  (iHasPanel)?730:1022;
         g_WaveWidgetAllHeightPix =696;
-        g_WaveWidgetHeightPix = g_WaveWidgetAllHeightPix/iWaveNum;
+        g_WaveWidgetHeightPix = g_WaveWidgetAllHeightPix/g_WaveNumber;
 
         g_PixPerByte_3_125mm = g_WaveWidgetWidthPix/220.0*3.125/125.0;  //(730[pix]/220[mm])* 3.125[mm/s] / (125[Byte/s])
         g_PixPerByte_6_25mm = g_WaveWidgetWidthPix/220.0*6.25/125.0; //(730[pix]/220[mm])* 6.25[mm/s] / (125[Byte/s])
@@ -265,7 +265,7 @@ void CLayoutModule::f_layout_hint(CLayoutCfg cfg)
         }
         g_WaveWidgetWidthPix = (iHasPanel)?590:1022;
         g_WaveWidgetAllHeightPix = (iHasNIBP)?440:696;
-        g_WaveWidgetHeightPix = g_WaveWidgetAllHeightPix/iWaveNum;
+        g_WaveWidgetHeightPix = g_WaveWidgetAllHeightPix/g_WaveNumber;
 
         g_PixPerByte_3_125mm = g_WaveWidgetWidthPix/220.0*3.125/125.0;  //(730[pix]/220[mm])* 3.125[mm/s] / (125[Byte/s])
         g_PixPerByte_6_25mm = g_WaveWidgetWidthPix/220.0*6.25/125.0; //(730[pix]/220[mm])* 6.25[mm/s] / (125[Byte/s])
@@ -300,12 +300,6 @@ void CLayoutModule::f_set_wave_layout()
 {
     int iHLayout = 0;
     int index = 0;
-    g_WavePlotter->clearScreen();
-    QRect ret(0,
-              STATUS_BAR_WIDGET_HEIGHT,
-              g_WaveWidgetWidthPix,
-              g_WaveWidgetAllHeightPix);
-  g_WavePlotter-> setGeometry(ret);
     {
         CEegModuleCfg cfg;
         g_EegModule->f_get_eeg_cfg(&cfg);
@@ -411,6 +405,13 @@ void CLayoutModule::f_set_wave_layout()
         cfg.m_wave_enable = false;
         g_AnaesModule->f_set_cfg(cfg);
     }
+
+    QRect ret(0,
+              STATUS_BAR_WIDGET_HEIGHT,
+              g_WaveWidgetWidthPix,
+              g_WaveWidgetAllHeightPix);
+    g_WavePlotter->setGeometry(ret);
+    g_WavePlotter->clearScreen();
 }
 
 void CLayoutModule::f_set_stand_layout()

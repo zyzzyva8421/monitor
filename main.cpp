@@ -1,4 +1,4 @@
-#include <QtGui/QApplication>
+ #include <QtGui/QApplication>
 #include <QtCore/QTextCodec>
 #include <qapplication.h>
 #include <qtextcodec.h>

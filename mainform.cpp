@@ -23,6 +23,7 @@
 int g_WaveWidgetWidthPix = 730;
 int g_WaveWidgetAllHeightPix = 696;
 int g_WaveWidgetHeightPix = 50;
+int g_WaveNumber = MAX_PLOT_CURVES;
 
 double g_PixPerByte_3_125mm = 0.08295454; //(730[pix]/220[mm])* 3.125[mm/s] / (125[Byte/s])
 double g_PixPerByte_6_25mm = 0.16590909; //(730[pix]/220[mm])* 6.25[mm/s] / (125[Byte/s])

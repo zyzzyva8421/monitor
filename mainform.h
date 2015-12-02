@@ -3,7 +3,6 @@
 
 
 #include "ui_mainform.h"
-#include "ui_mainform_big_font.h"
 #include "rsc_modu/layout.h"
 #include "rsc_modu/color.h"
 #include "rsc_modu/modu_ibp.h"
@@ -41,6 +40,7 @@ extern double g_PixPerByte_25mm;
 extern double g_PixPerByte_50mm;
 
 #define STATUS_BAR_WIDGET_HEIGHT 32
+#define MENU_BAR_WIDGET_HEIGHT 40
 class CMainForm :	public QWidget,public Ui_MonitorForm
 {
     Q_OBJECT
@@ -94,6 +94,7 @@ private slots:
 public:
         void f_set_all_panels_color();
         void f_set_standard_layout();
+        void f_set_ecg_layout();
         void f_set_big_font_layout();
         bool f_process_key(int key);
 protected:

@@ -163,7 +163,6 @@ CEegModule::CEegModule(QWidget *parent)
          {
              g_WavePlotter->setWaveColor(m_eeg_cfg->m_wave_indx[i],
                                          GLB_COLOR(m_eeg_cfg->m_wave_color[i]));
-
          }
      }
      if(m_eeg_cfg->m_wave_plot_enable[0])
@@ -302,11 +301,12 @@ void CEegModule::f_setDefaultCfg()
      m_eeg_cfg->m_eeg_snore_coef = 1.4; //鼾声系数
      for(int i=0;i<EEG_MODULE_WAVE_NUM;i++)
      {
-         m_eeg_cfg->m_wave_color[i] = GLB_COLOR_GREEN; // wave color
+         m_eeg_cfg->m_wave_color[i] = GLB_COLOR_RED; // wave color
          m_eeg_cfg->m_wave_rec[i].setRect(0,50*i,730,48);
          m_eeg_cfg->m_wave_indx[i] = 0;
          m_eeg_cfg->m_wave_plot_enable[i] = true;
      }
+     m_eeg_cfg->m_panel_color = GLB_COLOR_RED;
 }
 void CEegModule::f_set_eeg_def_cfg()
 {

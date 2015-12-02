@@ -65,8 +65,8 @@ void CCO2Modu::f_setDefaultCfg()
     m_modu_cfg->m_alarm_high = 100;
     m_modu_cfg->m_alarm_low = 60;
     m_modu_cfg->m_wave_speed = 0;
-
-
+    m_modu_cfg-> m_panel_color = GLB_COLOR_PURPLE;
+    m_modu_cfg->m_wave_color = GLB_COLOR_PURPLE;
     m_modu_cfg->m_work_mode = 0;
     m_modu_cfg->m_ssphyxia_alarm = 1;
     m_modu_cfg->m_wave_amp = 0;

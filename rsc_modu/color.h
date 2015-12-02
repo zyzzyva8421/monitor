@@ -18,7 +18,7 @@ typedef struct stColorCfg_
 } stColorCfg;
 typedef enum EnumGlbColor_
 {
-    G_COLOR_WHITE,
+             GLB_COLOR_WHITE,
              GLB_COLOR_GREEN,
              GLB_COLOR_RED,
              GLB_COLOR_BLUE,
@@ -32,5 +32,5 @@ typedef enum EnumGlbColor_
 
 extern QColor g_Color[10] ;
 extern QString g_ColorName[10];
-#define GLB_COLOR(x) (((x>0)&&(x<10))?g_Color[x]:(g_Color[1]))
+#define GLB_COLOR(x) (((x>=0)&&(x<10))?g_Color[x]:(g_Color[1]))
 #endif // COLOR_H

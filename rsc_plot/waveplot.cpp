@@ -58,8 +58,8 @@ WavePlotter::WavePlotter(QWidget *parent)
     }
     QRect ret(0,
               STATUS_BAR_WIDGET_HEIGHT,
-              g_WaveWidgetWidthPix,
-              g_WaveWidgetAllHeightPix);
+              1024,
+              768-(STATUS_BAR_WIDGET_HEIGHT+MENU_BAR_WIDGET_HEIGHT));
    setGeometry(ret);
    show();
 }
@@ -529,8 +529,8 @@ void WavePlotter::drawCurves(QPainter *painter)
         painter->setBrush(QBrush(Qt::black,Qt::SolidPattern));
         painter->drawRect(0,
                           0,
-                          g_WaveWidgetWidthPix,
-                          g_WaveWidgetAllHeightPix);
+                          1024,
+                          768-(STATUS_BAR_WIDGET_HEIGHT+MENU_BAR_WIDGET_HEIGHT));
 
        for(int i = 0;i<g_WaveNumber;i++)
         {
@@ -599,14 +599,8 @@ void WavePlotter::setGeometry(QRect &rect)
 {
     QMutexLocker locker(&m_mutex_pixmap);
     QWidget::setGeometry(rect);
-    QPixmap *tmp = NULL;
-    if(pixmap) {
-      //delete pixmap;
-        tmp = pixmap;
-    }
     pixmap = new QPixmap(size());
     pixmap->fill(this, 0, 0);
-    if (tmp) delete tmp;
 }
 
 void WavePlotter::setWaveName(int chnl , QString strWavName,int OffsetY,int height)//设置通道名称；

@@ -58,8 +58,8 @@ void CAnaesDepModu::f_setDefaultCfg()
     m_modu_cfg->m_alarm_high = 100;
     m_modu_cfg->m_alarm_low = 60;
     m_modu_cfg->m_wave_speed = 0;
-    m_modu_cfg-> m_panel_color = 4;
-    m_modu_cfg-> m_wave_color = 4;
+    m_modu_cfg-> m_panel_color = GLB_COLOR_YELLOW;
+    m_modu_cfg-> m_wave_color = GLB_COLOR_YELLOW;
     m_modu_cfg-> m_module_enable;//true = module enable;
     m_modu_cfg->m_para_enable = true;
     m_modu_cfg->m_wave_enable = false;

@@ -190,8 +190,7 @@ FORMS += \
     ui_dlg/alm_temp_dlg.ui \
     ui_dlg/alm_spo2_dlg.ui \
     ui_dlg/serv_usr_config_dlg.ui \
-    keyboard.ui \
-    mainform_big_font.ui
+    keyboard.ui
 
 OTHER_FILES += \
     rsc_warning/warning2.txt

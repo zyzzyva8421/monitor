@@ -38,13 +38,17 @@ public:
 private:
     void f_set_wave_layout();
     void f_layout_hint(CLayoutCfg cfg);
+    bool f_set_stand_panel_layout(int &panelX);
+    void f_update_wave_num();
     void f_set_stand_layout();
+    bool f_set_bigfont_panel_layout(int &panelX);
     void f_set_bigfont_layout();
     void f_set_spirspo_layout();
     void f_set_nibpreview_layout();
     void f_set_trendtable_layout();
     void f_set_mashen_layout();
     void f_set_ecg_all_lead();
+    bool f_set_ecg_panel_layout(int &panelX);
 
 };
 

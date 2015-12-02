@@ -109,6 +109,8 @@ void CIBPModu::f_setDefaultCfg()
      m_modu_cfg->m_ibp2_wave_indx = 0;
      m_modu_cfg->m_ibp1_panel_color = 5;
      m_modu_cfg->m_ibp2_panel_color = 5;
+     m_modu_cfg->m_ibp1_panel_color = m_modu_cfg->m_ibp1_wave_color = GLB_COLOR_RED;
+     m_modu_cfg->m_ibp2_panel_color = m_modu_cfg->m_ibp2_wave_color = GLB_COLOR_PURPLE;
 }
 void CIBPModu::f_reset_value()
 {

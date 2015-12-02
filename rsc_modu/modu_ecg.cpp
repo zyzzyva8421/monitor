@@ -1231,7 +1231,7 @@ void CEcgModule::f_set_ecg_def_cfg()
     m_ecg_cfg->m_module_enable = true;//true = module enable;
     for(int i=0;i<ECG_MODULE_WAVE_NUM;i++)
     {
-        m_ecg_cfg->m_wave_color[i] = GLB_COLOR_RED; // wave color
+        m_ecg_cfg->m_wave_color[i] = GLB_COLOR_GREEN; // wave color
         m_ecg_cfg->m_wave_rec[i].setRect(0,50*i+400,730,48);
         m_ecg_cfg->m_wave_plot_enable[i] = true;
         m_ecg_cfg->m_wave_indx[i] = 0;
@@ -1240,7 +1240,7 @@ void CEcgModule::f_set_ecg_def_cfg()
     }
 
     m_ecg_cfg->m_ecg_para_enable = true;
-    m_ecg_cfg->m_panel_color = GLB_COLOR_RED;//para color
+    m_ecg_cfg->m_panel_color = GLB_COLOR_GREEN;//para color
     m_ecg_cfg->m_ecg_wave_speed = 2; //6.25mm/s *N
 
     m_ecg_cfg->m_dara_src = ECG_MODULE_DATA_SRC_PORT; //where data from:file or serial port;
@@ -1500,7 +1500,7 @@ void CEcgModule::f_set_ecg_wave_layout()
             m_wave_plot[i]->setGeometry(m_ecg_cfg->m_wave_rec[i]);//();
         }
     }*/
-    for(int i=0;i<ECG_MODULE_WAVE_NUM;i++)
+    for(int i=0;i<ECG_MODULE_WAVE_NUM-1;i++)
     {
         if(m_ecg_cfg->m_wave_plot_enable[i] == true)
         {
@@ -1560,7 +1560,7 @@ void CEcgModule::f_set_nibp_def_cfg()
     m_nibp_cfg->m_nibp_interval = 0;
     m_nibp_cfg-> m_module_enable = true;//true = module enable;
     m_nibp_cfg-> m_nibp_para_enable = true;
-    m_nibp_cfg-> m_panel_color = 4;//para color
+    m_nibp_cfg-> m_panel_color = GLB_COLOR_PINK;//para color
     m_nibp_cfg->m_dara_src = CNibpModuleCfg::ENUM_ECG_DATA_SRC_PORT; //where data from:file or serial port;
 
 
@@ -1641,7 +1641,7 @@ void CEcgModule::f_set_temp_def_cfg()
     m_temp_cfg->m_wave_num = 0;
     m_temp_cfg->m_module_enable = true;//true = module enable;
     m_temp_cfg->m_temp_para_enable = true;
-    m_temp_cfg->m_panel_color = 3;//para color
+    m_temp_cfg->m_panel_color = GLB_COLOR_WHITE;//para color
 
     m_temp_cfg->m_dara_src =CTempModuleCfg::ENUM_ECG_DATA_SRC_PORT; //where data from:file or serial port;
 
@@ -1695,8 +1695,8 @@ void CEcgModule::f_set_spire_def_cfg()
      m_spire_cfg->m_spire_lead = 1;
      m_spire_cfg->m_spire_src = 0;
      m_spire_cfg->m_wave_enable = true;
-     m_spire_cfg->m_wave_color = GLB_COLOR_YELLOW; // wave color
-     m_spire_cfg->m_panel_color = GLB_COLOR_YELLOW;
+     m_spire_cfg->m_wave_color = GLB_COLOR_BLUE; // wave color
+     m_spire_cfg->m_panel_color = GLB_COLOR_BLUE;
      m_spire_cfg->m_wave_rec.setRect(0,50*8+200,730,50);
      m_spire_cfg->m_wave_indx = 0;
      m_spire_cfg->m_spire_para_enable = true;

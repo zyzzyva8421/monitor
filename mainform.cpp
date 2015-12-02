@@ -12,7 +12,7 @@
 #include "rsc_modu/layout.h"
 #include "rsc_modu/modu_thread.h"
 #include "rsc_modu/modu_ibp.h"
-#include "rsc_modu/modu_anaes.h"
+#include "rsc_modu/modu_anaes.h"z
 #include "rsc_modu/modu_eeg.h"
 #include "rsc_modu/modu_netthread.h"
 #include "rsc_modu/modu_net.h"
@@ -53,6 +53,7 @@ int iStartdelay = 0;
 CMainForm::CMainForm(QWidget* parent,Qt::WindowFlags f)
  :	QWidget(parent,f)
  {
+    g_WavePlotter = new WavePlotter(this);
     setupUi(this);
     this->setWindowFlags(Qt::Window|Qt::FramelessWindowHint);
 
@@ -97,7 +98,6 @@ CMainForm::CMainForm(QWidget* parent,Qt::WindowFlags f)
     g_EegModule = new CEegModule(this);
     g_CO2Module = new CCO2Modu(this);
     g_NetModule = new CNetModule(this);
-    g_WavePlotter = new WavePlotter(this);
     g_LayoutModule = new CLayoutModule(this);
     g_DatabaseModule = new CDatabaseModule(this);
     g_drawThread = new CDrawThread(this);
@@ -647,7 +647,6 @@ void CMainForm::f_set_standard_layout()
     setLocale(QLocale(QLocale::Chinese, QLocale::China));
 
     // ECG Standard Layout
-    //rame_ECG->setGeometry(QRect(730, 146, 292, 90));
     TextLabel_XinLv_ShangXian->show();
     TextLabel_XinLv_XiaXian->show();
     TextLabel_XinLv_STkaiguan1->show();
@@ -656,52 +655,38 @@ void CMainForm::f_set_standard_layout()
     TextLabel_XinLv_STkaiguan2_Text->show();
 
     // Temprature Standdar Layout
-    //frame_temp->setGeometry(QRect(730, 655, 292, 72));
     TextLabel_TiWen_SheShiDu->show();
 
-    // IBP2 Standard Layout
-    //frame_ibp2->setGeometry(QRect(730, 492, 292, 80));
-    //frame_ibp2->show();
-
-    // IBP1 Standard Layout
-    //frame_ibp1->setGeometry(QRect(730, 410, 292, 80));
-    //frame_ibp1->show();
-
     // NIBP Standard Layout
-    //frame_nibp->setGeometry(QRect(730, 319, 292, 90));
     TextLabel_WuChuangXueYa_XiaXian->show();
     TextLabel_WuChuangXueYa_ShangXian->show();
     TextLabel_WuChuangXueYa_fenzhong->show();
     TextLabel_WuChuangXueYa_xiudaiya->show();
     TextLabel_WuChuangXueYa_xiudaiya_value->show();
 
-    // Mashen Standard  Layout
-    //frame_mashen->setGeometry(QRect(730, 33, 292, 112));
-   // frame_mashen->show();
 
     // SPO2 Standard Layout
-    //frame_spo2->setGeometry(QRect(730, 237, 292, 80));
     TextLabel_XueYang_XiaXian->show();
     TextLabel_XueYang_ShangXian->show();
     TextLabel_MaiLv_ShangXian->show();
     TextLabel_MaiLv_XiaXian->show();
 
     // SP Standard Layout
-    //frame_sp->setGeometry(QRect(730, 573, 292, 80));
     TextLabel_HuXiLv_ShangXian->show();
     TextLabel_HuXiLv_XiaXian->show();
     TextLabel_HuXiLvCo2_Co2_ShangXian->show();
     TextLabel_HuXiLvCo2_Co2_XiaXian->show();
+    TextLabel_HuXiLvCo2_Co2_value_XiRu->show();
+    TextLabel_HuXiLvCo2_Co2->show();
+    TextLabel_HuXiLvCo2_Co2_value_HuMo->show();
+    TextLabel_HuXiLvCo2_Co2_value_XieXian->show();
+    TextLabel_HuXiLvCo2_Co2_mmHg->show();
 
     // ECG Standard Layout
     QFont font1;
     font1.setFamily(QString::fromUtf8("\346\226\207\346\263\211\351\251\277\345\276\256\347\261\263\351\273\221"));
     frame_ECG->setFont(font1);
     frame_ECG->setAutoFillBackground(false);
-    frame_ECG->setStyleSheet(QString::fromUtf8("color:red;\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-width:1px;\n"
-"border-style:solid;"));
     frame_ECG->setFrameShape(QFrame::StyledPanel);
     frame_ECG->setFrameShadow(QFrame::Plain);
     TextLabel_XinLv->setGeometry(QRect(5, 5, 51, 30));
@@ -769,8 +754,6 @@ void CMainForm::f_set_standard_layout()
 
     // Temprature Standdar Layout
     frame_temp->setFont(font1);
-    frame_temp->setStyleSheet(QString::fromUtf8("color:rgb(255, 62, 14);border-color: rgb(255, 255, 255);border-style:solid;border-width:1px;\n"
-""));
     frame_temp->setFrameShape(QFrame::StyledPanel);
     frame_temp->setFrameShadow(QFrame::Plain);
     TextLabel_TiWen_1->setGeometry(QRect(5, 5, 59, 30));
@@ -827,10 +810,6 @@ void CMainForm::f_set_standard_layout()
 
     // IBP2 Standard Layout
     frame_ibp2->setFont(font1);
-    frame_ibp2->setStyleSheet(QString::fromUtf8("color:rgb(60, 102, 255);\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-width:1px;\n"
-"border-style:solid;"));
     frame_ibp2->setFrameShape(QFrame::StyledPanel);
     frame_ibp2->setFrameShadow(QFrame::Plain);
     TextLabel_ZhongXinJingMaiYa_mmHg->setGeometry(QRect(220, 10, 70, 59));
@@ -859,10 +838,6 @@ void CMainForm::f_set_standard_layout()
 
     // IBP1 Standard Layout
     frame_ibp1->setFont(font1);
-    frame_ibp1->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 127);\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-width:1px;\n"
-"border-style:solid;"));
     frame_ibp1->setFrameShape(QFrame::StyledPanel);
     frame_ibp1->setFrameShadow(QFrame::Plain);
     frame_ibp1->setLineWidth(1);
@@ -900,13 +875,6 @@ void CMainForm::f_set_standard_layout()
     // NIBP Standard Layout
     frame_nibp->setFont(font1);
     frame_nibp->setAutoFillBackground(false);
-    frame_nibp->setStyleSheet(QString::fromUtf8("color:rgb(0, 85, 255);\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-width:1px;\n"
-"border-style:solid;\n"
-"\n"
-"\n"
-""));
     frame_nibp->setFrameShape(QFrame::StyledPanel);
     frame_nibp->setFrameShadow(QFrame::Plain);
     TextLabel_WuChuangXueYa->setGeometry(QRect(5, 5, 95, 30));
@@ -984,10 +952,6 @@ void CMainForm::f_set_standard_layout()
     // SPO2 Standard Layout
     frame_spo2->setFont(font1);
     frame_spo2->setAutoFillBackground(false);
-    frame_spo2->setStyleSheet(QString::fromUtf8("color: rgb(85, 255, 0);\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-width:1px;\n"
-"border-style:solid;"));
     frame_spo2->setFrameShape(QFrame::StyledPanel);
     frame_spo2->setFrameShadow(QFrame::Plain);
     TextLabel_MaiLv->setGeometry(QRect(230, 5, 55, 25));
@@ -1040,11 +1004,6 @@ void CMainForm::f_set_standard_layout()
     // Mashen Standard  Layout
     frame_mashen->setFont(font1);
     frame_mashen->setAutoFillBackground(false);
-    frame_mashen->setStyleSheet(QString::fromUtf8("color: purple;\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-width:1px;\n"
-"border-style:solid;\n"
-""));
     frame_mashen->setFrameShape(QFrame::StyledPanel);
     frame_mashen->setFrameShadow(QFrame::Plain);
     TextLabel_AnaesDep_BaiDianJiDanWei->setGeometry(QRect(100, 90, 32, 20));
@@ -1134,10 +1093,6 @@ void CMainForm::f_set_standard_layout()
     // SP Standard Layout
     frame_sp->setFont(font1);
     frame_sp->setAutoFillBackground(false);
-    frame_sp->setStyleSheet(QString::fromUtf8("color:rgb(255, 165, 10);\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-style:solid;\n"
-"border-width:1px;"));
     frame_sp->setFrameShape(QFrame::StyledPanel);
     frame_sp->setFrameShadow(QFrame::Plain);
     TextLabel_HuXiLv_ShangXian->setGeometry(QRect(15, 36, 30, 20));
@@ -1203,6 +1158,341 @@ void CMainForm::f_set_standard_layout()
 
 }
 
+void CMainForm::f_set_ecg_layout() {
+    // ECG Big Font Layout
+    TextLabel_XinLv_ShangXian->show();
+    TextLabel_XinLv_XiaXian->show();
+    TextLabel_XinLv_STkaiguan1->hide();
+    TextLabel_XinLv_STkaiguan2->hide();
+    TextLabel_XinLv_STkaiguan1_Text->hide();
+    TextLabel_XinLv_STkaiguan2_Text->hide();
+
+    // Temparture Big Font Layout
+    TextLabel_TiWen_SheShiDu->hide();
+
+    // NIBP Standard Layout
+    TextLabel_WuChuangXueYa_XiaXian->show();
+    TextLabel_WuChuangXueYa_ShangXian->show();
+    TextLabel_WuChuangXueYa_fenzhong->hide();
+    TextLabel_WuChuangXueYa_xiudaiya->hide();
+    TextLabel_WuChuangXueYa_xiudaiya_value->hide();
+
+    // SPO2 Big Font Layout
+    TextLabel_XueYang_XiaXian->show();
+    TextLabel_XueYang_ShangXian->show();
+    TextLabel_MaiLv_ShangXian->hide();
+    TextLabel_MaiLv_XiaXian->hide();
+
+    // SP Big Font Layout
+     TextLabel_HuXiLv_ShangXian->show();
+     TextLabel_HuXiLv_XiaXian->show();
+     TextLabel_HuXiLvCo2_Co2_ShangXian->hide();
+     TextLabel_HuXiLvCo2_Co2_XiaXian->hide();
+     TextLabel_HuXiLvCo2_Co2_value_XiRu->hide();
+     TextLabel_HuXiLvCo2_Co2->hide();
+     TextLabel_HuXiLvCo2_Co2_value_HuMo->hide();
+     TextLabel_HuXiLvCo2_Co2_value_XieXian->hide();
+     TextLabel_HuXiLvCo2_Co2_mmHg->hide();
+
+     // IBP2 Standard Layout
+     frame_ibp2->hide();
+
+     // Mashen Standard  Layout
+     frame_mashen->hide();
+
+     // IBP1 Big Font Layout
+     frame_ibp1->hide();
+
+    QFont font1;
+    font1.setFamily(QString::fromUtf8("WenQuanYi Micro Hei"));
+    frame_ECG->setFont(font1);
+    frame_ECG->setAutoFillBackground(false);
+    frame_ECG->setFrameShape(QFrame::StyledPanel);
+    frame_ECG->setFrameShadow(QFrame::Plain);
+
+    TextLabel_XinLv->setGeometry(QRect(5, 5, 40, 20));
+    QFont font2;
+    font2.setPointSize(14);
+    TextLabel_XinLv->setFont(font2);
+    TextLabel_XinLv->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_XinLv->setAlignment(Qt::AlignCenter);
+
+    TextLabel_XinLv_bpm->setGeometry(QRect(310, 5, 40, 20));
+    TextLabel_XinLv_bpm->setFont(font2);
+    TextLabel_XinLv_bpm->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_XinLv_bpm->setAlignment(Qt::AlignCenter);
+
+    TextLabel_XinLv_value->setGeometry(QRect(40, 10, 261, 121));
+    QFont font3;
+    font3.setPointSize(90);
+    font3.setBold(true);
+    font3.setWeight(75);
+    TextLabel_XinLv_value->setFont(font3);
+    TextLabel_XinLv_value->setLayoutDirection(Qt::RightToLeft);
+    TextLabel_XinLv_value->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_XinLv_value->setMidLineWidth(1);
+    TextLabel_XinLv_value->setTextFormat(Qt::RichText);
+    TextLabel_XinLv_value->setAlignment(Qt::AlignCenter);
+
+    TextLabel_XinLv_QiBo->setGeometry(QRect(220, 5, 40, 20));
+    QFont font4;
+    font4.setFamily(QString::fromUtf8("\346\226\207\346\263\211\351\251\277\345\276\256\347\261\263\351\273\221"));
+    font4.setPointSize(14);
+    TextLabel_XinLv_QiBo->setFont(font4);
+    TextLabel_XinLv_QiBo->setAutoFillBackground(false);
+    TextLabel_XinLv_QiBo->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_XinLv_QiBo->setAlignment(Qt::AlignCenter);
+
+    TextLabel_XinLv_QiBo_KaiGuan->setGeometry(QRect(260, 5, 40, 20));
+    TextLabel_XinLv_QiBo_KaiGuan->setFont(font4);
+    TextLabel_XinLv_QiBo_KaiGuan->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_XinLv_QiBo_KaiGuan->setAlignment(Qt::AlignCenter);
+    TextLabel_XinLv_value->raise();
+    TextLabel_XinLv_QiBo->raise();
+    TextLabel_XinLv_QiBo_KaiGuan->raise();
+    TextLabel_XinLv_bpm->raise();
+    TextLabel_XinLv->raise();
+
+    frame_temp->setFrameShape(QFrame::StyledPanel);
+    frame_temp->setFrameShadow(QFrame::Plain);
+
+    TextLabel_TiWen_1->setGeometry(QRect(5, 2, 59, 30));
+    QFont font5;
+    font5.setFamily(QString::fromUtf8("WenQuanYi Micro Hei Mono"));
+    font5.setPointSize(14);
+    TextLabel_TiWen_1->setFont(font5);
+    TextLabel_TiWen_1->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_TiWen_1->setFrameShape(QFrame::NoFrame);
+    TextLabel_TiWen_1->setFrameShadow(QFrame::Raised);
+    TextLabel_TiWen_1->setLineWidth(1);
+    TextLabel_TiWen_1->setAlignment(Qt::AlignCenter);
+
+    TextLabel_TiWen_1_ShangXian->setGeometry(QRect(15, 34, 32, 15));
+    QFont font6;
+    font6.setFamily(QString::fromUtf8("WenQuanYi Micro Hei Mono"));
+    TextLabel_TiWen_1_ShangXian->setFont(font6);
+    TextLabel_TiWen_1_ShangXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_TiWen_1_ShangXian->setAlignment(Qt::AlignCenter);
+
+    TextLabel_TiWen_1_XiaXian->setGeometry(QRect(15, 50, 32, 15));
+    TextLabel_TiWen_1_XiaXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_TiWen_1_XiaXian->setAlignment(Qt::AlignCenter);
+
+    TextLabel_TiWen_2_XiaXian->setGeometry(QRect(15, 114, 32, 20));
+    TextLabel_TiWen_2_XiaXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_TiWen_2_XiaXian->setAlignment(Qt::AlignCenter);
+
+    TextLabel_TiWen_2->setGeometry(QRect(5, 70, 59, 30));
+    TextLabel_TiWen_2->setFont(font2);
+    TextLabel_TiWen_2->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_TiWen_2->setAlignment(Qt::AlignCenter);
+
+    TextLabel_TiWen_2_ShangXian->setGeometry(QRect(15, 98, 32, 15));
+    TextLabel_TiWen_2_ShangXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_TiWen_2_ShangXian->setAlignment(Qt::AlignCenter);
+
+    TextLabel_TiWen_1_value_2->setGeometry(QRect(50, 10, 160, 60));
+    QFont font7;
+    font7.setPointSize(50);
+    font7.setBold(true);
+    font7.setWeight(75);
+    TextLabel_TiWen_1_value_2->setFont(font7);
+    TextLabel_TiWen_1_value_2->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_TiWen_1_value_2->setAlignment(Qt::AlignCenter);
+
+    TextLabel_TiWen_2_value_2->setGeometry(QRect(50, 70, 160, 60));
+    TextLabel_TiWen_2_value_2->setFont(font7);
+    TextLabel_TiWen_2_value_2->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_TiWen_2_value_2->setAlignment(Qt::AlignCenter);
+
+    TextLabel_TiWen_SheShiDu2->setGeometry(QRect(320, 10, 32, 21));
+    TextLabel_TiWen_SheShiDu2->setFont(font2);
+    TextLabel_TiWen_SheShiDu2->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_TiWen_SheShiDu2->setAlignment(Qt::AlignCenter);
+
+    TextLabel_TiWen_1_ShangXian->raise();
+    TextLabel_TiWen_1_XiaXian->raise();
+    TextLabel_TiWen_2_XiaXian->raise();
+    TextLabel_TiWen_2_ShangXian->raise();
+    TextLabel_TiWen_1_value_2->raise();
+    TextLabel_TiWen_2_value_2->raise();
+    TextLabel_TiWen_SheShiDu2->raise();
+    TextLabel_TiWen_2->raise();
+    TextLabel_TiWen_1->raise();
+
+    frame_spo2->setAutoFillBackground(false);
+    frame_spo2->setFrameShape(QFrame::StyledPanel);
+    frame_spo2->setFrameShadow(QFrame::Plain);
+
+    TextLabel_XueYang->setGeometry(QRect(5, 5, 51, 25));
+    TextLabel_XueYang->setFont(font2);
+    TextLabel_XueYang->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_XueYang->setAlignment(Qt::AlignCenter);
+
+    TextLabel_XueYang_BaiFenHao->setGeometry(QRect(330, 5, 21, 16));
+    TextLabel_XueYang_BaiFenHao->setFont(font2);
+    TextLabel_XueYang_BaiFenHao->setStyleSheet(QString::fromUtf8("border-style:none;"));
+
+    TextLabel_XueYang_value->setGeometry(QRect(40, 10, 261, 121));
+    TextLabel_XueYang_value->setFont(font3);
+    TextLabel_XueYang_value->setLayoutDirection(Qt::RightToLeft);
+    TextLabel_XueYang_value->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_XueYang_value->setMidLineWidth(1);
+    TextLabel_XueYang_value->setTextFormat(Qt::RichText);
+    TextLabel_XueYang_value->setScaledContents(false);
+    TextLabel_XueYang_value->setAlignment(Qt::AlignCenter);
+
+    TextLabel_XueYang_XiaXian->setGeometry(QRect(10, 51, 32, 25));
+    QFont font8;
+    font8.setFamily(QString::fromUtf8("\346\226\207\346\263\211\351\251\277\345\276\256\347\261\263\351\273\221"));
+    TextLabel_XueYang_XiaXian->setFont(font8);
+    TextLabel_XueYang_XiaXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_XueYang_XiaXian->setAlignment(Qt::AlignCenter);
+
+    TextLabel_XueYang_ShangXian->setGeometry(QRect(10, 30, 32, 20));
+    TextLabel_XueYang_ShangXian->setFont(font8);
+    TextLabel_XueYang_ShangXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_XueYang_ShangXian->setAlignment(Qt::AlignCenter);
+    TextLabel_XueYang_BaiFenHao->raise();
+    TextLabel_XueYang_value->raise();
+    TextLabel_XueYang->raise();
+    TextLabel_XueYang_XiaXian->raise();
+    TextLabel_XueYang_ShangXian->raise();
+
+    frame_sp->setAutoFillBackground(false);
+    frame_sp->setFrameShape(QFrame::StyledPanel);
+    frame_sp->setFrameShadow(QFrame::Plain);
+
+    TextLabel_HuXiLv_value->setGeometry(QRect(40, 10, 261, 121));
+    QFont font10;
+    font10.setPointSize(100);
+    font10.setBold(true);
+    font10.setWeight(75);
+    TextLabel_HuXiLv_value->setFont(font10);
+    TextLabel_HuXiLv_value->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_HuXiLv_value->setAlignment(Qt::AlignCenter);
+
+    TextLabel_HuXiLv->setGeometry(QRect(5, 5, 71, 30));
+    TextLabel_HuXiLv->setFont(font2);
+    TextLabel_HuXiLv->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_HuXiLv->setFrameShape(QFrame::NoFrame);
+    TextLabel_HuXiLv->setAlignment(Qt::AlignCenter);
+
+    TextLabel_HuXiLv_ShangXian->setGeometry(QRect(10, 29, 30, 20));
+    TextLabel_HuXiLv_ShangXian->setFont(font8);
+    TextLabel_HuXiLv_ShangXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_HuXiLv_ShangXian->setAlignment(Qt::AlignCenter);
+
+    TextLabel_HuXiLv_XiaXian->setGeometry(QRect(10, 50, 30, 20));
+    TextLabel_HuXiLv_XiaXian->setFont(font8);
+    TextLabel_HuXiLv_XiaXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_HuXiLv_XiaXian->setAlignment(Qt::AlignCenter);
+
+    frame_nibp->setFont(font8);
+    frame_nibp->setAutoFillBackground(false);
+    frame_nibp->setFrameShape(QFrame::StyledPanel);
+    frame_nibp->setFrameShadow(QFrame::Plain);
+
+    TextLabel_WuChuangXueYa->setGeometry(QRect(5, 5, 81, 30));
+    TextLabel_WuChuangXueYa->setFont(font4);
+    TextLabel_WuChuangXueYa->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_WuChuangXueYa->setAlignment(Qt::AlignCenter);
+
+    label_nibp_unit->setGeometry(QRect(280, 5, 70, 25));
+    label_nibp_unit->setFont(font4);
+    label_nibp_unit->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    label_nibp_unit->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+    TextLabel_WuChuangXueYa_ShouDong->setGeometry(QRect(5, 110, 40, 15));
+    TextLabel_WuChuangXueYa_ShouDong->setFont(font8);
+    TextLabel_WuChuangXueYa_ShouDong->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_WuChuangXueYa_ShouDong->setAlignment(Qt::AlignCenter);
+
+    TextLabel_WuChuangXueYa_ZiDongJianGe->setGeometry(QRect(90, 20, 40, 10));
+    QFont font11;
+    font11.setFamily(QString::fromUtf8("\346\226\207\346\263\211\351\251\277\345\276\256\347\261\263\351\273\221"));
+    font11.setPointSize(8);
+    TextLabel_WuChuangXueYa_ZiDongJianGe->setFont(font11);
+    TextLabel_WuChuangXueYa_ZiDongJianGe->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_WuChuangXueYa_ZiDongJianGe->setAlignment(Qt::AlignCenter);
+
+    TextLabel_WuChuangXueYa_value_Gao_2->setGeometry(QRect(40, 40, 111, 51));
+    QFont font12;
+    font12.setFamily(QString::fromUtf8("\346\226\207\346\263\211\351\251\277\345\276\256\347\261\263\351\273\221"));
+    font12.setPointSize(40);
+    font12.setBold(true);
+    font12.setWeight(75);
+    TextLabel_WuChuangXueYa_value_Gao_2->setFont(font12);
+    TextLabel_WuChuangXueYa_value_Gao_2->setLayoutDirection(Qt::RightToLeft);
+    TextLabel_WuChuangXueYa_value_Gao_2->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_WuChuangXueYa_value_Gao_2->setMidLineWidth(1);
+    TextLabel_WuChuangXueYa_value_Gao_2->setTextFormat(Qt::RichText);
+    TextLabel_WuChuangXueYa_value_Gao_2->setAlignment(Qt::AlignCenter);
+
+    TextLabel_WuChuangXueYa_value_Pingjun->setGeometry(QRect(160, 40, 91, 51));
+    TextLabel_WuChuangXueYa_value_Pingjun->setFont(font12);
+    TextLabel_WuChuangXueYa_value_Pingjun->setLayoutDirection(Qt::RightToLeft);
+    TextLabel_WuChuangXueYa_value_Pingjun->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_WuChuangXueYa_value_Pingjun->setMidLineWidth(1);
+    TextLabel_WuChuangXueYa_value_Pingjun->setTextFormat(Qt::RichText);
+    TextLabel_WuChuangXueYa_value_Pingjun->setAlignment(Qt::AlignCenter);
+
+    TextLabel_WuChuangXueYa_value_Di->setGeometry(QRect(270, 50, 81, 41));
+    QFont font13;
+    font13.setFamily(QString::fromUtf8("\346\226\207\346\263\211\351\251\277\345\276\256\347\261\263\351\273\221"));
+    font13.setPointSize(25);
+    font13.setBold(true);
+    font13.setWeight(75);
+    TextLabel_WuChuangXueYa_value_Di->setFont(font13);
+    TextLabel_WuChuangXueYa_value_Di->setLayoutDirection(Qt::RightToLeft);
+    TextLabel_WuChuangXueYa_value_Di->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_WuChuangXueYa_value_Di->setMidLineWidth(1);
+    TextLabel_WuChuangXueYa_value_Di->setTextFormat(Qt::RichText);
+    TextLabel_WuChuangXueYa_value_Di->setAlignment(Qt::AlignCenter);
+
+    TextLabel_WuChuangXueYa_value_XieXian->setGeometry(QRect(140, 40, 21, 61));
+    QFont font14;
+    font14.setFamily(QString::fromUtf8("\346\226\207\346\263\211\351\251\277\345\276\256\347\261\263\351\273\221"));
+    font14.setPointSize(40);
+    TextLabel_WuChuangXueYa_value_XieXian->setFont(font14);
+    TextLabel_WuChuangXueYa_value_XieXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_WuChuangXueYa_value_XieXian->setAlignment(Qt::AlignCenter);
+
+    TextLabel_MaiLv_value->setGeometry(QRect(300, 110, 50, 21));
+    QFont font15;
+    font15.setFamily(QString::fromUtf8("\346\226\207\346\263\211\351\251\277\345\276\256\347\261\263\351\273\221"));
+    font15.setPointSize(18);
+    TextLabel_MaiLv_value->setFont(font15);
+    TextLabel_MaiLv_value->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_MaiLv_value->setAlignment(Qt::AlignCenter);
+
+    TextLabel_XueYang_2->setGeometry(QRect(250, 110, 51, 20));
+    QFont font16;
+    font16.setFamily(QString::fromUtf8("\346\226\207\346\263\211\351\251\277\345\276\256\347\261\263\351\273\221"));
+    font16.setPointSize(15);
+    TextLabel_XueYang_2->setFont(font16);
+    TextLabel_XueYang_2->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_XueYang_2->setAlignment(Qt::AlignCenter);
+
+    TextLabel_WuChuangXueYa_XiaXian->setGeometry(QRect(10, 49, 30, 18));
+    TextLabel_WuChuangXueYa_XiaXian->setFont(font8);
+    TextLabel_WuChuangXueYa_XiaXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_WuChuangXueYa_XiaXian->setAlignment(Qt::AlignCenter);
+
+    TextLabel_WuChuangXueYa_ShangXian->setGeometry(QRect(10, 30, 32, 18));
+    TextLabel_WuChuangXueYa_ShangXian->setFont(font8);
+    TextLabel_WuChuangXueYa_ShangXian->setStyleSheet(QString::fromUtf8("border-style:none;"));
+    TextLabel_WuChuangXueYa_ShangXian->setAlignment(Qt::AlignCenter);
+    frame_temp->raise();
+    frame_spo2->raise();
+    frame_menu->raise();
+    frame_bar->raise();
+    verticalLayoutWidget->raise();
+    frame_sp->raise();
+    frame_nibp->raise();
+    frame_ECG->raise();
+}
+
 void CMainForm::f_set_big_font_layout()
 {
     // ECG Big Font Layout
@@ -1239,6 +1529,11 @@ void CMainForm::f_set_big_font_layout()
      TextLabel_HuXiLv_XiaXian->hide();
      TextLabel_HuXiLvCo2_Co2_ShangXian->hide();
      TextLabel_HuXiLvCo2_Co2_XiaXian->hide();
+     TextLabel_HuXiLvCo2_Co2_value_XiRu->show();
+     TextLabel_HuXiLvCo2_Co2->show();
+     TextLabel_HuXiLvCo2_Co2_value_HuMo->show();
+     TextLabel_HuXiLvCo2_Co2_value_XieXian->show();
+    TextLabel_HuXiLvCo2_Co2_mmHg->show();
 
      // IBP2 Standard Layout
      frame_ibp2->hide();
@@ -1254,10 +1549,6 @@ void CMainForm::f_set_big_font_layout()
     font1.setFamily(QString::fromUtf8("WenQuanYi Micro Hei"));
     frame_ECG->setFont(font1);
     frame_ECG->setAutoFillBackground(false);
-    frame_ECG->setStyleSheet(QString::fromUtf8("color:red;\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-width:1px;\n"
-"border-style:solid;"));
     frame_ECG->setFrameShape(QFrame::StyledPanel);
     frame_ECG->setFrameShadow(QFrame::Plain);
     TextLabel_XinLv->setGeometry(QRect(5, 5, 40, 20));
@@ -1295,10 +1586,6 @@ void CMainForm::f_set_big_font_layout()
     TextLabel_XinLv_QiBo_KaiGuan->setAlignment(Qt::AlignCenter);
 
     // Temparture Big Font Layout
-    frame_temp->setStyleSheet(QString::fromUtf8("color:rgb(255, 62, 14);\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-style:solid;\n"
-"border-width:1px;"));
     frame_temp->setFrameShape(QFrame::StyledPanel);
     frame_temp->setFrameShadow(QFrame::Plain);
     TextLabel_TiWen_1->setGeometry(QRect(5, 5, 59, 30));
@@ -1349,10 +1636,6 @@ void CMainForm::f_set_big_font_layout()
 
     // SPO2 Big Font Layout
     frame_spo2->setAutoFillBackground(false);
-    frame_spo2->setStyleSheet(QString::fromUtf8("color: rgb(85, 255, 0);\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-width:1px;\n"
-"border-style:solid;"));
     frame_spo2->setFrameShape(QFrame::StyledPanel);
     frame_spo2->setFrameShadow(QFrame::Plain);
     TextLabel_XueYang->setGeometry(QRect(5, 5, 51, 25));
@@ -1372,10 +1655,6 @@ void CMainForm::f_set_big_font_layout()
 
    // SP Big Font Layout
     frame_sp->setAutoFillBackground(false);
-    frame_sp->setStyleSheet(QString::fromUtf8("color:rgb(255, 165, 10);\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-style:solid;\n"
-"border-width:1px;"));
     frame_sp->setFrameShape(QFrame::StyledPanel);
     frame_sp->setFrameShadow(QFrame::Plain);
     TextLabel_HuXiLv_value->setGeometry(QRect(10, 40, 181, 71));
@@ -1425,13 +1704,6 @@ void CMainForm::f_set_big_font_layout()
     font14.setFamily(QString::fromUtf8("\346\226\207\346\263\211\351\251\277\345\276\256\347\261\263\351\273\221"));
     frame_nibp->setFont(font14);
     frame_nibp->setAutoFillBackground(false);
-    frame_nibp->setStyleSheet(QString::fromUtf8("color:rgb(0, 85, 255);\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-width:1px;\n"
-"border-style:solid;\n"
-"\n"
-"\n"
-""));
     frame_nibp->setFrameShape(QFrame::StyledPanel);
     frame_nibp->setFrameShadow(QFrame::Plain);
     TextLabel_WuChuangXueYa->setGeometry(QRect(5, 5, 95, 30));
